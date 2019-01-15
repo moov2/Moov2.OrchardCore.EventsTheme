@@ -11,15 +11,39 @@
         <resources type="Stylesheet" />
         <resources type="HeadScript" />
 
-        <link rel="stylesheet" href="/Moov2.OrchardCore.EventsTheme/css/style.css">
-        <script src="/Moov2.OrchardCore.EventsTheme/js/bundle.js" async></script>
-
-        @await RenderSectionAsync("Header", required: false)
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="/GuildfordGamesDrinks.Theme/css/style.css">
+        <script src="/GuildfordGamesDrinks.Theme/js/bundle.js" async></script>
     </head>
+
     <body>
-        @await RenderSectionAsync("Header", required: false)
-        @await RenderBodyAsync()
-        @await RenderSectionAsync("Footer", required: false)
+        <header>
+            <div class="toolbar">
+                <div class="toolbar__logo">
+                    @await RenderSectionAsync("Logo", required: false)
+                </div>
+
+                <div class="toolbar__nav">
+                    @await RenderSectionAsync("Nav", required: false)
+                </div>
+            </div>
+        </header>
+
+        <main>
+            @await RenderBodyAsync()
+        </main>
+
+        <footer>
+            <div class="toolbar">
+                <div class="toolbar__logo">
+                    @await RenderSectionAsync("Logo", required: false)
+                </div>
+
+                <div class="toolbar__nav">
+                    @await RenderSectionAsync("FooterNav", required: false)
+                </div>
+            </div>
+        </footer>
 
         <resources type="FootScript" />
     </body>

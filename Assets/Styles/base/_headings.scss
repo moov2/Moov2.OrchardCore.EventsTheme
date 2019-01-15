@@ -1,0 +1,40 @@
+/**
+ * $HEADINGS
+ */
+
+/**
+ * Heading elements (h1, h2, h3, etc...)
+ */
+
+h1, h2, h3 {
+    display: block;
+    margin-top: 0;
+
+    a {
+        text-decoration: none;
+        
+        &:active,
+        &:focus,
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+h1 {
+    @include rem(font-size, $font-size-heading);
+    @include rem(line-height, $font-line-height-heading);
+}
+
+h2 {
+    @include rem(font-size, $font-size-sub-heading);
+    @include rem(line-height, $font-line-height-sub-heading);
+    text-transform: uppercase;
+}
+
+h3 {
+    @include rem(margin-bottom, $spacing-small);
+
+    @include rem(font-size, $font-size-large);
+    @include rem(line-height, $font-line-height-large);
+}

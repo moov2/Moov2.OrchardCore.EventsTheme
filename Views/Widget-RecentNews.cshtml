@@ -1,0 +1,16 @@
+﻿@using System.Linq;
+
+@{ 
+    var items = await Orchard.ContentQueryAsync("RecentNews");
+}
+
+<ul class="list list--horizontal list--triple">
+
+    @foreach (var contentItem in items.Take(3))
+    {
+        <li class="list__item">
+            @await Orchard.DisplayAsync(contentItem, "Summary")
+        </li>
+    }
+
+</ul>

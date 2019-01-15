@@ -1,0 +1,67 @@
+/**
+ * $SECTION
+ */
+
+/**
+ * Piece of a page.
+ */
+
+.section {
+    display: block;
+}
+
+.section--content,
+.section--content-wide {
+    .section__content {
+        margin-left: auto;
+        margin-right: auto;
+        @include rem(padding-bottom, $spacing-x-large);
+        @include rem(padding-top, $spacing-x-large);
+    }
+}
+
+.section--content .section__content {
+    @include rem(max-width, $section-content-width);
+}
+
+.section--content-wide .section__content {
+    @include rem(max-width, $section-content-wide-width);
+}
+
+.section--featured,
+.section--promo {
+    align-items: center;
+    display: flex;
+
+    .section__content {
+        width: 100%;
+    }
+}
+
+.section--featured {
+    min-height: calc(100vh - #{$toolbar-height});
+
+    background-color: $section-featured-background;
+
+    .section__content {
+        text-align: center;
+    }
+}
+
+.section--promo {
+    @include rem(padding-bottom, $section-promo-padding-vertical);
+    @include rem(padding-top, $section-promo-padding-vertical);
+
+    background-color: $section-background-cta;
+
+    .section__content {
+        margin-left: auto;
+        margin-right: auto;
+        @include rem(max-width, $section-content-promo-width);
+        text-align: left;
+    }
+}
+
+.section--light {
+    background-color: $section-background-light;
+}

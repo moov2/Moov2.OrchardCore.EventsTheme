@@ -1,0 +1,44 @@
+/**
+ * $PROMO
+ */
+
+/**
+ * Promotion content for an upcoming event.
+ */
+
+.promo {
+    padding-bottom: $spacing-large;
+
+    display: flex;
+    flex-direction: row;
+}
+
+    .promo__info {
+        box-sizing: border-box;
+        @include rem(padding-right, $spacing-large);
+        width: 50%;
+
+        background-color: $info-background;
+    }
+
+        .promo__info-items {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        
+            list-style: none;
+        }
+
+    .promo__featured {
+        box-sizing: border-box;
+        width: 50%;
+
+        background-color: $color-grey;
+
+        .media:first-child {
+            @include rem(margin-top, -$promo-featured-breakout-unit);
+        }
+    }

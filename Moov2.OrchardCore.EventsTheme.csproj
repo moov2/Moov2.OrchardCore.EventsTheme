@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-*" />
+    <PackageReference Include="OrchardCore.Flows" Version="1.0.0-beta3-*" />
+    <PackageReference Include="OrchardCore.Queries" Version="1.0.0-beta3-*" />
     <PackageReference Include="OrchardCore.Theme.Targets" Version="1.0.0-beta3-*" />
   </ItemGroup>
 

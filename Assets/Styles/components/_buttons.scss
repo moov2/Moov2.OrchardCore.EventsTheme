@@ -1,0 +1,41 @@
+/**
+ * $BUTTONS
+ */
+
+/**
+ * Interactive elements that perform an action (e.g. navigating
+ * a user to another page).
+ */
+
+.button {
+    display: inline-block;
+}
+
+a.button--cta,
+.button--cta {
+    @include rem(padding-bottom, $spacing-base);
+    @include rem(padding-left, $spacing-large);
+    @include rem(padding-right, $spacing-large);
+    @include rem(padding-top, $spacing-base);
+
+    background-color: $button-cta-background;
+
+    @include rem(line-height, $button-cta-line-height);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a.button--primary,
+.button--primary {
+    @include rem(padding-bottom, $spacing-base);
+    @include rem(padding-left, $spacing-large);
+    @include rem(padding-right, $spacing-large);
+    @include rem(padding-top, $spacing-base);
+
+    background-color: $button-primary-background;
+
+    color: $button-primary-color;
+    @include rem(line-height, $button-primary-line-height);
+    text-decoration: none;
+    text-transform: uppercase;
+}

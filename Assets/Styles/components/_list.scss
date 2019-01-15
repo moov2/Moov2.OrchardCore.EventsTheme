@@ -1,0 +1,43 @@
+/**
+ * $LISTS
+ */
+
+/**
+ * Displays a list of items.
+ */
+
+.list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+    .list__item {
+        box-sizing: border-box;
+    }
+
+
+.list--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .list__item {
+        @include rem(padding-right, $spacing-large);
+    }
+}
+
+.list--double {
+    .list__item {
+        @include rem(margin-bottom, $spacing-large);
+        width: 50%;
+    }
+}
+
+.list--triple {
+    .list__item {
+        @include rem(margin-bottom, $spacing-large);
+        width: 33.3%;
+    }
+}

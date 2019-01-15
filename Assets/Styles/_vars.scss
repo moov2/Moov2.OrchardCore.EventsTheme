@@ -1,0 +1,117 @@
+/**
+ * $VARS
+ */
+
+/**
+ * Reusable values and configuration of specific components.
+ */
+
+/**
+ * Colour palette
+ */
+
+$color-black: #1b1b1b;
+$color-light: #f9f9f9;
+$color-grey: #e5e5e5;
+$color-grey-light: #f4f4f4;
+$color-white: #fff;
+
+$color-cta: #c4c4c4;
+$color-primary: $color-black;
+
+/**
+ * Font settings
+ */
+
+$font-color-default: $color-black;
+$font-color-alt: $color-light;
+
+$font-family-default: 'Roboto', sans-serif;
+
+$font-size-default-em: 1.8em;
+
+$font-size-heading: 7.2rem;
+$font-size-sub-heading: 3.6rem;
+$font-size-large: 2.4rem;
+$font-size-default: 1.8rem;
+$font-size-small: 1.6rem;
+
+$font-line-height-heading: 8.4rem;
+$font-line-height-sub-heading: 4.2rem;
+$font-line-height-large: 2.7rem;
+
+/**
+ * Spacing units
+ */
+
+$spacing-small: .75rem;
+$spacing-base: 1.5rem;
+$spacing-large: 3rem;
+$spacing-x-large: 8rem;
+$spacing-xx-large: 16rem;
+
+/**
+ * Button settings.
+ */
+
+$button-cta-background: $color-cta;
+$button-cta-line-height: 2.1rem;
+
+$button-primary-background: $color-primary;
+$button-primary-color: $color-light;
+$button-primary-line-height: 2.1rem;
+
+/**
+ * Info settings.
+ */
+
+$info-background: $color-light;
+
+/**
+ * Navigation settings.
+ */
+
+$nav-cta-background: $color-grey;
+
+/**
+ * Panel settings.
+ */
+
+$panel-content-width: 31.5rem;
+
+$panel-white: $color-white;
+
+/**
+ * Placeholder settings.
+ */
+
+$placeholder-background-color: $color-cta;
+
+/**
+ * Promo settings.
+ */
+
+$promo-featured-breakout-unit: 2rem;
+
+/**
+ * Section settings.
+ */
+
+$section-background-cta: $color-cta;
+$section-background-light: $color-light;
+
+$section-content-width: 90.8rem;
+$section-content-wide-width: 102rem;
+$section-content-promo-width: 114.4rem;
+
+$section-promo-padding-vertical: $spacing-xx-large;
+
+$section-featured-background: $color-grey-light;
+
+/**
+ * Toolbar settings.
+ */
+
+$toolbar-background: $color-black;
+
+$toolbar-height: 5rem;

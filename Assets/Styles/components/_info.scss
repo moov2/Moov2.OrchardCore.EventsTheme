@@ -1,0 +1,32 @@
+/**
+ * $INFO
+ */
+
+/**
+ * Displays a single piece of information, which could have an action.
+ */
+
+.info {
+    display: block;
+    @include rem(padding, $spacing-large);
+}
+
+    .info__title {
+        @include rem(margin-bottom, $spacing-large);
+
+        text-transform: uppercase;
+    }
+
+    .info__content {
+        @include rem(margin-bottom, $spacing-small);
+
+        font-weight: bold;
+    }
+
+    .info__meta {
+        font-style: italic;
+    }
+
+    .info__action {
+
+    }

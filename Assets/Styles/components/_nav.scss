@@ -1,0 +1,51 @@
+/**
+ * $NAV
+ */
+
+/**
+ * Collection of links to other pages in the site.
+ */
+
+.nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .nav__item {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        @include rem(margin-right, $spacing-large);
+        @include rem(padding-left, $spacing-base);
+        @include rem(padding-right, $spacing-base);
+
+        text-transform: uppercase;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:active,
+            &:focus,
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    /**
+     * Stands out compared to default navigation items.
+     */
+    .nav__item--cta {
+        background-color: $nav-cta-background;
+
+        font-weight: bold;
+    }

@@ -1,0 +1,40 @@
+/**
+ * $TOOLBAR
+ */
+
+/**
+ * Toolbar that displays an identity and navigation options typically displayed
+ * at the top of the page.
+ */
+
+.toolbar {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    @include rem(height, $toolbar-height);
+    justify-content: space-between;
+    @include rem(padding-left, $spacing-large);
+    @include rem(padding-right, $spacing-large);
+    width: 100%;
+
+    background-color: $toolbar-background;
+
+    color: $font-color-alt;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+    .toolbar__logo {
+        @include rem(padding-bottom, $spacing-base);
+        @include rem(padding-top, $spacing-base);
+
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .toolbar__nav {
+        height: 100%;
+    }

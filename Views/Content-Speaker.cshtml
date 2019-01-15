@@ -1,0 +1,13 @@
+﻿@{ 
+    var speaker = Model.ContentItem.Content.Speaker;
+    var name = speaker.Name.Text;
+    var occupation = speaker.Occupation.Text;
+}
+
+<div class="media media--tight">
+    <div class="placeholder placeholder--thumbnail"></div>
+    <div class="media__body">
+        <h3>@name</h3>
+        <p><em>@occupation</em></p>
+    </div>
+</div>

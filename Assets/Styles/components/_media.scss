@@ -1,0 +1,61 @@
+/**
+ * $MEDIA
+ */
+
+/**
+ * Displays a media element (image, video, etc...) with some accompanying
+ * content.
+ */
+
+.media {
+    align-items: center;
+    display: flex;
+}
+
+.media--stacked {
+    display: block;
+}
+
+.media--spaced {
+    .media__body {
+        @include rem(margin-left, $spacing-x-large);
+        margin-right: 0;
+    }
+
+    &.media--rev {
+        .media__body {
+            margin-left: 0;
+            @include rem(margin-right, $spacing-x-large);
+        }
+    }
+}
+
+.media--tight {
+    .media__body {
+        @include rem(margin-left, $spacing-base);
+        margin-right: 0;
+    }
+
+    &.media--rev {
+        .media__body {
+            margin-left: 0;
+            @include rem(margin-right, $spacing-base);
+        }
+    }
+}
+
+    .media__body {
+        flex: 1;
+    }
+
+/**
+ * Alignment helpers.
+ */
+
+.media.align-top {
+    align-items: flex-start;
+}
+
+.media.align-bottom {
+    align-items: flex-end;
+}

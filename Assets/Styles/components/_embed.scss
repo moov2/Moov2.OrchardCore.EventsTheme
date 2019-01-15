@@ -1,0 +1,19 @@
+/**
+ * $EMBED
+ */
+
+/**
+ * Embeds content from a third party site like Youtube.
+ */
+
+.embed {
+    display: block;
+}
+
+    .embed__label {
+        @include rem(padding, $spacing-small);
+        
+        @include rem(font-size, $font-size-large);
+        font-weight: bold;
+        text-transform: uppercase;
+    }

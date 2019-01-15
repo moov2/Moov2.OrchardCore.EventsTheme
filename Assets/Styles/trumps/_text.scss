@@ -1,0 +1,13 @@
+/**
+ * $TEXT
+ */
+
+/**
+ * Customise styling of text content.
+ */
+
+.text--centered { text-align: center; }
+
+.text--uppercase { text-transform: uppercase; }
+
+.text--small { @include rem(font-size, $font-size-small); }

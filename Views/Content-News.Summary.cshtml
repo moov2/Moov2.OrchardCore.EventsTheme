@@ -1,0 +1,20 @@
+﻿@{ 
+    var contentItem = Model.ContentItem;
+
+    var title = contentItem.DisplayText;
+    var createdUtc = contentItem.CreatedUtc;
+    var synopsis = contentItem.Content.News.Synopsis.Text;
+    var url = Model.ContentItem.Content.AutoroutePart.Path;
+}
+
+<div class="media media--stacked">
+    <div class="placeholder placeholder--thumbnail-article"></div>
+
+    <div class="media__body panel panel--white">
+        <h3>
+            <a href="/@url">@title</a>
+        </h3>
+        <p class="text--small">@createdUtc.ToString("dd/MM/yyyy")</p>
+        <p class="text--small">@Html.Raw(synopsis)</p>
+    </div>
+</div>

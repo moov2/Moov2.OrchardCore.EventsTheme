@@ -1,0 +1,12 @@
+/**
+ * $PARAGRAPH
+ */
+
+/**
+ * Paragraph element (p)
+ */
+
+p {
+    @include rem(margin-bottom, $spacing-base);
+    margin-top: 0;
+}

@@ -1,0 +1,10 @@
+﻿<ul class="list list--horizontal list--double">
+
+@foreach (var contentItem in await Orchard.ContentQueryAsync("Speakers"))
+{
+    <li class="list__item">
+        @await Orchard.DisplayAsync(contentItem)
+    </li>
+}
+
+</ul>

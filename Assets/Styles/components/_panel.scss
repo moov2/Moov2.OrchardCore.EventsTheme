@@ -1,0 +1,23 @@
+/**
+ * $PANELS
+ */
+
+/**
+ * Interactive elements that perform an action (e.g. navigating
+ * a user to another page).
+ */
+
+.panel {
+    box-sizing: border-box;
+    display: block;
+    @include rem(margin-bottom, $spacing-base);
+    @include rem(padding, $spacing-base);
+}
+
+.panel--content {
+    @include rem(max-width, $panel-content-width);
+}
+
+.panel--white {
+    background-color: $panel-white;
+}
