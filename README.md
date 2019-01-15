@@ -1,6 +1,10 @@
 # Events Theme
 
-Theme for events website
+Theme for an events website running on [Orchard Core](https://github.com/OrchardCMS/OrchardCore)
+
+## Build Status
+
+[![Build Status](https://secure.travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme.png?branch=master)](http://travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme) 
 
 ## Prerequisities
 
