@@ -12,6 +12,10 @@
     display: flex;
 }
 
+.media--rev {
+    flex-direction: row-reverse;
+}
+
 .media--stacked {
     display: block;
 }
