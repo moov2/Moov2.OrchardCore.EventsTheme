@@ -8,10 +8,16 @@
 @inject OrchardCore.ContentManagement.Display.IContentItemDisplayManager ContentItemDisplayManager
 
 @{
-    var sectionPart = Model.FlowPart.ContentItem.As<SectionPart>();
+    var tag = new TagBuilder("div");
+    var htmlAttributesPart = Model.FlowPart.ContentItem.As<HtmlAttributesPart>();
+
+    if (htmlAttributesPart != null)
+    {
+        htmlAttributesPart.ApplyToTagBuilder(tag);
+    }
 }
 
-<section class="section @sectionPart.CssClass">
+@tag.RenderStartTag()
     <div class="section__content">
         @foreach (var widget in Model.FlowPart.Widgets)
         {
@@ -29,4 +35,4 @@
             @await DisplayAsync(widgetContent)
         }
     </div>
-</section>
+@tag.RenderEndTag()
