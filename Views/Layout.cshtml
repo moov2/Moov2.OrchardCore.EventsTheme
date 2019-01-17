@@ -45,6 +45,8 @@
             </div>
         </footer>
 
+        @await RenderSectionAsync("Footer", required: false)
+
         <resources type="FootScript" />
     </body>
 </html>
