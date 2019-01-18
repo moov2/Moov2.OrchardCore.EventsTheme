@@ -1,0 +1,84 @@
+﻿@using OrchardCore.ContentManagement;
+
+@{
+    var latestEvent = Orchard.ContentQueryAsync("LatestEvent").Result.SingleOrDefault();
+}
+
+@if (latestEvent != null)
+{
+    var eventbriteUrl = latestEvent.Content.Event.EventbriteURL.Text;
+    var location = latestEvent.Content.Event.Location.Text;
+    var price = latestEvent.Content.Event.Price.Text;
+    var date = latestEvent.Content.Event.Date.Value;
+    var featuredSpeaker = GetFeaturedSpeaker(latestEvent.Content.Speakers.ContentItems);
+
+    <section class="section section--featured">
+        <div class="section__content">
+            <h1>@latestEvent.DisplayText</h1>
+
+            @if (eventbriteUrl != null)
+            {
+                <p><a href="@eventbriteUrl" class="button button--cta">Get your free ticket</a></p>
+            }
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__content">
+            <div class="promo">
+                <div class="promo__info">
+                    <ul class="promo__info-items">
+                        <li class="info">
+                            <div class="info__title">When</div>
+                            <div class="info__content">@date.ToString("dd/MM/yyyy")</div>
+                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                        </li>
+                        <li class="info">
+                            <div class="info__title">Where</div>
+                            <div class="info__content">@location</div>
+                            <div class="info__action"><a href="/">View map &raquo;</a></div>
+                        </li>
+                        <li class="info">
+                            <div class="info__title">Price</div>
+                            <div class="info__content">@price</div>
+                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="promo__featured">
+                    <div class="media">
+                        <div class="placeholder placeholder--thumbnail-large"></div>
+
+                        <div class="media__body">
+                            <div class="info">
+                                <div class="info__title">Featured Speaker</div>
+
+                                @if (featuredSpeaker != null)
+                                {
+                                <div class="info__content">@featuredSpeaker.TitlePart.Title</div>
+                                <div class="info__meta">@featuredSpeaker.Speaker.Occupation.Text</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@functions {
+    public static dynamic GetFeaturedSpeaker(dynamic speakers)
+    {
+        foreach (var speaker in speakers)
+        {
+            if (speaker.Speaker.Featured.Value == "True")
+            {
+                return speaker;
+            }
+        }
+
+        return null;
+    }
+}
