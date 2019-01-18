@@ -7,6 +7,7 @@
 @if (latestEvent != null)
 {
     var eventbriteUrl = latestEvent.Content.Event.EventbriteURL.Text;
+    var googleMapUrl = latestEvent.Content.Event.GoogleMapURL.Text;
     var location = latestEvent.Content.Event.Location.Text;
     var price = latestEvent.Content.Event.Price.Text;
     var date = latestEvent.Content.Event.Date.Value;
@@ -31,17 +32,23 @@
                         <li class="info">
                             <div class="info__title">When</div>
                             <div class="info__content">@date.ToString("dd/MM/yyyy")</div>
-                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                            @if (eventbriteUrl != null) {
+                                <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                            }
                         </li>
                         <li class="info">
                             <div class="info__title">Where</div>
                             <div class="info__content">@location</div>
-                            <div class="info__action"><a href="/">View map &raquo;</a></div>
+                            @if (googleMapUrl != null) {
+                                <div class="info__action"><a href="@googleMapUrl">View map &raquo;</a></div>
+                            }
                         </li>
                         <li class="info">
                             <div class="info__title">Price</div>
                             <div class="info__content">@price</div>
-                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                            @if (eventbriteUrl != null) {
+                                <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                            }
                         </li>
                     </ul>
                 </div>
