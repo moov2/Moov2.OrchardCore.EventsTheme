@@ -1,0 +1,1380 @@
+{
+    "name": "Events",
+    "displayName": "Events",
+    "description": "Sets up content for events website.",
+    "author": "Moov2 Ltd.",
+    "website": "https://moov2.com",
+    "version": "0.1.0",
+    "issetuprecipe": true,
+    "categories": [
+        "default"
+    ],
+    "tags": [
+        "games"
+    ],
+    "variables": {
+        "homepageContentItemId": "[js:uuid()]",
+        "now": "[js: new Date().toISOString()]"
+    },
+    "steps": [
+        {
+            "name": "Feature",
+            "enable": [
+                "GuildfordGamesDrinks",
+                "OrchardCore.Liquid",
+                "OrchardCore.Settings",
+                "OrchardCore.Contents",
+                "OrchardCore.ContentTypes",
+                "OrchardCore.Widgets",
+                "OrchardCore.Flows",
+                "Moov2.OrchardCore.Widgets",
+                "OrchardCore.Admin",
+                "OrchardCore.Autoroute",
+                "OrchardCore.ContentFields",
+                "OrchardCore.ContentPreview",
+                "OrchardCore.Deployment",
+                "OrchardCore.Deployment.Remote",
+                "OrchardCore.Diagnostics",
+                "OrchardCore.DynamicCache",
+                "OrchardCore.Resources",
+                "OrchardCore.Features",
+                "OrchardCore.HomeRoute",
+                "OrchardCore.Html",
+                "OrchardCore.Scripting",
+                "OrchardCore.Layers",
+                "OrchardCore.Localization",
+                "OrchardCore.Title",
+                "OrchardCore.Media",
+                "OrchardCore.Navigation",
+                "OrchardCore.Queries",
+                "OrchardCore.Queries.Sql",
+                "OrchardCore.Users",
+                "OrchardCore.Recipes",
+                "OrchardCore.Roles",
+                "OrchardCore.Templates",
+                "OrchardCore.Tenants",
+                "OrchardCore.Themes",
+                "Moov2.OrchardCore.EventsTheme",
+                "SafeMode",
+                "TheAdmin",
+                "TheTheme"
+            ],
+            "disable": [
+                "OrchardCore.AdminMenu",
+                "OrchardCore.Alias",
+                "OrchardCore.Apis.GraphQL",
+                "OrchardCore.BackgroundTasks",
+                "OrchardCore.Contents.FileContentDefinition",
+                "OrchardCore.CustomSettings",
+                "OrchardCore.DataProtection.Azure",
+                "OrchardCore.Email",
+                "OrchardCore.Facebook",
+                "OrchardCore.Facebook.Login",
+                "OrchardCore.Feeds",
+                "OrchardCore.Forms",
+                "OrchardCore.Google.Analytics",
+                "OrchardCore.Google.GoogleAuthentication",
+                "OrchardCore.Https",
+                "OrchardCore.Indexing",
+                "OrchardCore.Lists",
+                "OrchardCore.Lucene",
+                "OrchardCore.Lucene.ContentPicker",
+                "OrchardCore.Lucene.Worker",
+                "OrchardCore.Markdown",
+                "OrchardCore.Media.Azure.Storage",
+                "OrchardCore.Menu",
+                "OrchardCore.Microsoft.Authentication.AzureAD",
+                "OrchardCore.Microsoft.Authentication.MicrosoftAccount",
+                "OrchardCore.MiniProfiler",
+                "OrchardCore.OpenId",
+                "OrchardCore.OpenId.Client",
+                "OrchardCore.OpenId.Management",
+                "OrchardCore.OpenId.EntityFrameworkCore",
+                "OrchardCore.OpenId.Server",
+                "OrchardCore.OpenId.Validation",
+                "OrchardCore.ReCaptcha",
+                "OrchardCore.ReCaptcha.Users",
+                "OrchardCore.XmlRpc",
+                "OrchardCore.RemotePublishing",
+                "OrchardCore.ResponseCache",
+                "OrchardCore.ResponseCompression",
+                "OrchardCore.ReverseProxy",
+                "OrchardCore.Setup",
+                "OrchardCore.Taxonomies",
+                "OrchardCore.Tenants.FileProvider",
+                "OrchardCore.Twitter.TwitterSignin",
+                "OrchardCore.Users.Registration",
+                "OrchardCore.Users.ResetPassword",
+                "OrchardCore.Users.TimeZone",
+                "OrchardCore.Workflows",
+                "OrchardCore.Workflows.Http",
+                "OrchardCore.Workflows.Timers",
+                "TheAgencyTheme",
+                "TheBlogTheme",
+                "TheComingSoonTheme"
+            ]
+        },
+        {
+            "name": "Layers",
+            "Layers": [
+                {
+                    "Name": "Default",
+                    "Rule": "true",
+                    "Description": "Displays widgets on every page."
+                }
+            ]
+        },
+        {
+            "name": "Settings",
+            "LayerSettings": {
+                "Zones": [
+                    "Logo",
+                    "Nav",
+                    "FooterNav"
+                ]
+            }
+        },
+        {
+            "name": "ContentDefinition",
+            "ContentTypes": [
+                {
+                    "Name": "Page",
+                    "DisplayName": "Page",
+                    "Settings": {
+                        "Creatable": "True",
+                        "Draftable": "True",
+                        "Versionable": "True",
+                        "Listable": "True",
+                        "Securable": "True",
+                        "Stereotype": null
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "Page",
+                            "Name": "Page",
+                            "Settings": {
+                                "Position": "2"
+                            }
+                        },
+                        {
+                            "PartName": "FlowPart",
+                            "Name": "FlowPart",
+                            "Settings": {
+                                "Position": "3"
+                            }
+                        },
+                        {
+                            "PartName": "AutoroutePart",
+                            "Name": "AutoroutePart",
+                            "Settings": {
+                                "DisplayName": null,
+                                "Description": null,
+                                "Editor": null,
+                                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                                "AllowCustomPath": "True",
+                                "AllowUpdatePath": "False",
+                                "ShowHomepageOption": "True",
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "PartName": "TitlePart",
+                            "Name": "TitlePart",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Html",
+                    "DisplayName": "Html",
+                    "Settings": {
+                        "Creatable": "False",
+                        "Draftable": "False",
+                        "Versionable": "False",
+                        "Listable": "False",
+                        "Securable": "False",
+                        "Stereotype": "Widget"
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "Html",
+                            "Name": "Html",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        },
+                        {
+                            "PartName": "HtmlBodyPart",
+                            "Name": "HtmlBodyPart",
+                            "Settings": {
+                                "Position": "1"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Event",
+                    "DisplayName": "Event",
+                    "Settings": {
+                        "Creatable": "True",
+                        "Draftable": "True",
+                        "Versionable": "True",
+                        "Listable": "True",
+                        "Securable": "True",
+                        "Stereotype": null
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "Event",
+                            "Name": "Event",
+                            "Settings": {
+                                "Position": "2"
+                            }
+                        },
+                        {
+                            "PartName": "AutoroutePart",
+                            "Name": "AutoroutePart",
+                            "Settings": {
+                                "Position": "1",
+                                "DisplayName": null,
+                                "Description": null,
+                                "Editor": null,
+                                "Pattern": "event/{{ ContentItem | display_text | slugify }}",
+                                "AllowCustomPath": "True",
+                                "AllowUpdatePath": "False",
+                                "ShowHomepageOption": "False"
+                            }
+                        },
+                        {
+                            "PartName": "CommonPart",
+                            "Name": "CommonPart",
+                            "Settings": {
+                                "Position": "4"
+                            }
+                        },
+                        {
+                            "PartName": "TitlePart",
+                            "Name": "TitlePart",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        },
+                        {
+                            "PartName": "BagPart",
+                            "Name": "Speakers",
+                            "Settings": {
+                                "DisplayName": "Speakers",
+                                "Description": "People who are speaking at the event.",
+                                "Editor": null,
+                                "ContainedContentTypes": [
+                                    "Speaker"
+                                ],
+                                "DisplayType": null,
+                                "Position": "3"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Speaker",
+                    "DisplayName": "Speaker",
+                    "Settings": {
+                        "Creatable": "True",
+                        "Draftable": "True",
+                        "Versionable": "True",
+                        "Listable": "True",
+                        "Securable": "True",
+                        "Stereotype": null
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "Speaker",
+                            "Name": "Speaker",
+                            "Settings": {
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "PartName": "TitlePart",
+                            "Name": "TitlePart",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "LatestEventSummary",
+                    "DisplayName": "Latest Event Summary",
+                    "Settings": {
+                        "Creatable": "False",
+                        "Draftable": "False",
+                        "Versionable": "False",
+                        "Listable": "False",
+                        "Securable": "False",
+                        "Stereotype": "Widget"
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "LatestEventSummary",
+                            "Name": "LatestEventSummary",
+                            "Settings": {
+                                "Position": "1"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "News",
+                    "DisplayName": "News",
+                    "Settings": {
+                        "Creatable": "True",
+                        "Draftable": "True",
+                        "Versionable": "True",
+                        "Listable": "True",
+                        "Securable": "True",
+                        "Stereotype": null
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "News",
+                            "Name": "News",
+                            "Settings": {
+                                "Position": "2"
+                            }
+                        },
+                        {
+                            "PartName": "AutoroutePart",
+                            "Name": "AutoroutePart",
+                            "Settings": {
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "PartName": "CommonPart",
+                            "Name": "CommonPart",
+                            "Settings": {
+                                "Position": "4"
+                            }
+                        },
+                        {
+                            "PartName": "FlowPart",
+                            "Name": "FlowPart",
+                            "Settings": {
+                                "Position": "3"
+                            }
+                        },
+                        {
+                            "PartName": "TitlePart",
+                            "Name": "TitlePart",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "RecentNews",
+                    "DisplayName": "Recent News",
+                    "Settings": {
+                        "Creatable": "False",
+                        "Draftable": "False",
+                        "Versionable": "False",
+                        "Listable": "False",
+                        "Securable": "False",
+                        "Stereotype": "Widget"
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "RecentNews",
+                            "Name": "RecentNews",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "LatestEventSpeakers",
+                    "DisplayName": "Latest Event Speakers",
+                    "Settings": {
+                        "Creatable": "False",
+                        "Draftable": "False",
+                        "Versionable": "False",
+                        "Listable": "False",
+                        "Securable": "False",
+                        "Stereotype": "Widget"
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "LatestEventSpeakers",
+                            "Name": "LatestEventSpeakers",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ContentParts": [
+                {
+                    "Name": "Event",
+                    "Settings": {},
+                    "ContentPartFieldDefinitionRecords": [
+                        {
+                            "FieldName": "TextField",
+                            "Name": "EventbriteURL",
+                            "Settings": {
+                                "DisplayName": "Eventbrite URL",
+                                "Editor": "Url",
+                                "DisplayMode": null,
+                                "Hint": "URL to the EventBrite page.",
+                                "Required": false,
+                                "Position": "4"
+                            }
+                        },
+                        {
+                            "FieldName": "DateTimeField",
+                            "Name": "Date",
+                            "Settings": {
+                                "DisplayName": "Date",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Date of the event.",
+                                "Required": true,
+                                "Position": "0"
+                            }
+                        },
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Price",
+                            "Settings": {
+                                "DisplayName": "Price",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Price to attend the event.",
+                                "Required": true,
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Location",
+                            "Settings": {
+                                "DisplayName": "Location",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Where the event is being held.",
+                                "Required": false,
+                                "Position": "2"
+                            }
+                        },
+                        {
+                            "FieldName": "TextField",
+                            "Name": "GoogleMapURL",
+                            "Settings": {
+                                "DisplayName": "Google Map URL",
+                                "Editor": "Url",
+                                "DisplayMode": null,
+                                "Hint": "Link to location on Google Maps",
+                                "Required": false,
+                                "Position": "3"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Speaker",
+                    "Settings": {},
+                    "ContentPartFieldDefinitionRecords": [
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Occupation",
+                            "Settings": {
+                                "DisplayName": "Occupation",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Company the speaker works for an their role (e.g. Community Manager, Sega)",
+                                "Required": true,
+                                "Position": "0"
+                            }
+                        },
+                        {
+                            "FieldName": "MediaField",
+                            "Name": "Thumbnail",
+                            "Settings": {
+                                "DisplayName": "Thumbnail",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Picture of the speaker.",
+                                "Required": false,
+                                "Multiple": false,
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "FieldName": "BooleanField",
+                            "Name": "Featured",
+                            "Settings": {
+                                "DisplayName": "Featured",
+                                "Editor": "Switch",
+                                "DisplayMode": null,
+                                "Hint": "Indicates the speaker is featured.",
+                                "Label": "Featured",
+                                "Position": "2"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "News",
+                    "Settings": {},
+                    "ContentPartFieldDefinitionRecords": [
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Synopsis",
+                            "Settings": {
+                                "DisplayName": "Synopsis",
+                                "Editor": "TextArea",
+                                "DisplayMode": null,
+                                "Hint": "Couple of sentences about the news article.",
+                                "Required": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Themes",
+            "Site": "Moov2.OrchardCore.EventsTheme",
+            "Admin": "TheAdmin"
+        },
+        {
+            "name": "Queries",
+            "Queries": [
+                {
+                    "Template": "select DocumentId\r\nfrom ContentItemIndex \r\nwhere Published = true and ContentType = 'Event'\r\norder by PublishedUtc desc\r\nlimit 1",
+                    "ReturnDocuments": true,
+                    "Name": "LatestEvent",
+                    "Source": "Sql",
+                    "Schema": null
+                },
+                {
+                    "Template": "select DocumentId\r\nfrom ContentItemIndex \r\nwhere Published = true and ContentType = 'News'\r\norder by PublishedUtc desc\r\nlimit 3",
+                    "ReturnDocuments": true,
+                    "Name": "RecentNews",
+                    "Source": "Sql",
+                    "Schema": null
+                }
+            ]
+        },
+        {
+            "name": "Content",
+            "data": [
+                {
+                    "ContentItemId": "4ddsnf08w1psw6ca9s8rq42hc8",
+                    "ContentItemVersionId": "4hcp6cwbgth5jzwprntk6jy9wm",
+                    "ContentType": "Html",
+                    "DisplayText": "Primary Navigation",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "Html": {},
+                    "HtmlBodyPart": {
+                        "Html": "<ul class=\"nav\">\r\n    <li class=\"nav__item nav__item--cta\">\r\n        <a href=\"/\"\">Get your free ticket</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Past Events</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">News</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Contact</a>\r\n    </li>\r\n</ul>"
+                    },
+                    "LayerMetadata": {
+                        "Position": 1,
+                        "Zone": "Nav",
+                        "Layer": "Default"
+                    }
+                },
+                {
+                    "ContentItemId": "46v3f2v9nq5g9v1w8tk1aemsng",
+                    "ContentItemVersionId": "47xeem7zwrsbbwevnyakjxnwd8",
+                    "ContentType": "Html",
+                    "DisplayText": "Logo",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "Html": {},
+                    "HtmlBodyPart": {
+                        "Html": "Event Name"
+                    },
+                    "LayerMetadata": {
+                        "Position": 1,
+                        "Zone": "Logo",
+                        "Layer": "Default",
+                        "RenderTitle": false
+                    }
+                },
+                {
+                    "ContentItemId": "4xhhxzgctkzfy0ck5qmh375exm",
+                    "ContentItemVersionId": "4yc21ts8wg1jsxbjkv8esy86mq",
+                    "ContentType": "News",
+                    "DisplayText": "New lineup addition: panel discussion",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "News": {
+                        "Synopsis": {
+                            "Text": "We asked ourselves, \"how can we squeeze even more awesome community management knowledge sharing into the schedule?\", the answer we came up with was a panel discussion with our amazing speakers and …"
+                        }
+                    },
+                    "AutoroutePart": {
+                        "Path": null,
+                        "SetHomepage": false
+                    },
+                    "CommonPart": {},
+                    "FlowPart": {
+                        "Widgets": []
+                    },
+                    "TitlePart": {
+                        "Title": "New lineup addition: panel discussion"
+                    }
+                },
+                {
+                    "ContentItemId": "4mt8ggptxnvqd06zhk8p6z6bn6",
+                    "ContentItemVersionId": "414v4bxedwc0vv5d2v783f2y5q",
+                    "ContentType": "News",
+                    "DisplayText": "New lineup addition: panel discussion",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "News": {
+                        "Synopsis": {
+                            "Text": "We asked ourselves, \"how can we squeeze even more awesome community management knowledge sharing into the schedule?\", the answer we came up with was a panel discussion with our amazing speakers and …"
+                        }
+                    },
+                    "AutoroutePart": {
+                        "Path": null,
+                        "SetHomepage": false
+                    },
+                    "CommonPart": {},
+                    "FlowPart": {
+                        "Widgets": []
+                    },
+                    "TitlePart": {
+                        "Title": "New lineup addition: panel discussion"
+                    }
+                },
+                {
+                    "ContentItemId": "417rmxymm4f513kyz9r7rcep5v",
+                    "ContentItemVersionId": "4chthe3x1wk6953wg1azm9gcx3",
+                    "ContentType": "News",
+                    "DisplayText": "New lineup addition: panel discussion",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "News": {
+                        "Synopsis": {
+                            "Text": "We asked ourselves, \"how can we squeeze even more awesome community management knowledge sharing into the schedule?\", the answer we came up with was a panel discussion with our amazing speakers and …"
+                        }
+                    },
+                    "AutoroutePart": {
+                        "Path": null,
+                        "SetHomepage": false
+                    },
+                    "CommonPart": {},
+                    "FlowPart": {
+                        "Widgets": []
+                    },
+                    "TitlePart": {
+                        "Title": "New lineup addition: panel discussion"
+                    }
+                },
+                {
+                    "ContentItemId": "4gq39r06jv294yt9azxrzpbtdw",
+                    "ContentItemVersionId": "44y64df61e6137b265stpv23w9",
+                    "ContentType": "Page",
+                    "DisplayText": "Homepage",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "Page": {},
+                    "FlowPart": {
+                        "Widgets": [
+                            {
+                                "ContentItemId": "4dtsg5xwhvp897qgy87ehne8np",
+                                "ContentItemVersionId": null,
+                                "ContentType": "LatestEventSummary",
+                                "DisplayText": null,
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "LatestEventSummary": {},
+                                "FlowMetadata": {
+                                    "Alignment": 3,
+                                    "Size": 100
+                                }
+                            },
+                            {
+                                "ContentItemId": "4b16vph1mb0nfzs7am24akhwc9",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Section",
+                                "DisplayText": "Why Community?",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "TitlePart": {
+                                    "Title": "Why Community?"
+                                },
+                                "SectionPart": {},
+                                "HtmlAttributesPart": {
+                                    "Id": null,
+                                    "CssClasses": "section--content"
+                                },
+                                "Content": {
+                                    "Widgets": [
+                                        {
+                                            "ContentItemId": "4yf5jqmwkb83h2yxrwjdee5bdh",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Heading",
+                                            "DisplayText": "Why Community?",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "HeadingPart": {
+                                                "Level": 2,
+                                                "Text": "Why Community?"
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": null
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        },
+                                        {
+                                            "ContentItemId": "4hv2kntze0j1w7tqk70exbe4nh",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Media",
+                                            "DisplayText": "About Event",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "TitlePart": {
+                                                "Title": "About Event"
+                                            },
+                                            "MediaItems": {
+                                                "ContentItems": [
+                                                    {
+                                                        "ContentItemId": "4p8cce979x5vy3ybwtx5nfx7n7",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Html",
+                                                        "DisplayText": null,
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "Html": {},
+                                                        "HtmlBodyPart": {
+                                                            "Html": "<div class=\"embed\">\r\n    <div class=\"placeholder placeholder--thumbnail-video\"></div>\r\n    <div class=\"embed__label\">Event Highlights</div>\r\n</div>"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": "media--spaced media--rev align-top margin--bottom-x-large"
+                                            },
+                                            "Body": {
+                                                "Widgets": [
+                                                    {
+                                                        "ContentItemId": "4bbptc4edcdbtrxqa7jhct19ww",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Lorem ipsum dolor sit amet, consectetur adipiscing...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id tempor orci. Fusce at purus leo. Nulla facilisi. Aenean ac ullamcorper nunc, eu congue odio. Sed at ipsum eu diam vestibulum lobortis."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": "text--bold"
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    },
+                                                    {
+                                                        "ContentItemId": "4snh410qqhgjmrpkvd05q53vnt",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Sed vitae molestie nisi, a auctor nunc. Ut turpis ...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Sed vitae molestie nisi, a auctor nunc. Ut turpis sem, dictum eu metus in, maximus vestibulum ligula. Donec pellentesque ligula quis nibh sollicitudin interdum. In ut convallis massa, fringilla tempor lacus. Quisque quis ultrices ante. Etiam sagittis, tellus sit amet commodo tristique, elit magna feugiat mi, non accumsan elit ex eget neque. Nunc leo nulla, fermentum non ante eget, sodales finibus sem. In vel molestie urna."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": null
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        },
+                                        {
+                                            "ContentItemId": "4ksj73fqxj1vkzgjnet1tjqs5d",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "LatestEventSpeakers",
+                                            "DisplayText": null,
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "LatestEventSpeakers": {},
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        }
+                                    ]
+                                },
+                                "FlowMetadata": {
+                                    "Alignment": 3,
+                                    "Size": 100
+                                }
+                            },
+                            {
+                                "ContentItemId": "45bcx344m2k8k7kcn2arsb494a",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Section",
+                                "DisplayText": "News",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "TitlePart": {
+                                    "Title": "News"
+                                },
+                                "SectionPart": {},
+                                "HtmlAttributesPart": {
+                                    "Id": null,
+                                    "CssClasses": "section--content section--light"
+                                },
+                                "Content": {
+                                    "Widgets": [
+                                        {
+                                            "ContentItemId": "4m6qm9eb4b2mfvnrs8g9cqhzxq",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Heading",
+                                            "DisplayText": "News",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "HeadingPart": {
+                                                "Level": 2,
+                                                "Text": "News"
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": "text--centered"
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        },
+                                        {
+                                            "ContentItemId": "44wwfctkfhs03s4n2cegwzsqxg",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "RecentNews",
+                                            "DisplayText": null,
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "RecentNews": {},
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        }
+                                    ]
+                                },
+                                "FlowMetadata": {
+                                    "Alignment": 3,
+                                    "Size": 100
+                                }
+                            },
+                            {
+                                "ContentItemId": "4s3a1ytzjqaksy3rbezya6bxcj",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Section",
+                                "DisplayText": "Showcase",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "TitlePart": {
+                                    "Title": "Showcase"
+                                },
+                                "SectionPart": {},
+                                "HtmlAttributesPart": {
+                                    "Id": null,
+                                    "CssClasses": "section--promo"
+                                },
+                                "Content": {
+                                    "Widgets": [
+                                        {
+                                            "ContentItemId": "42zfgvhz1e6en48g7eb9y7een1",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Container",
+                                            "DisplayText": "Showcase Content",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "TitlePart": {
+                                                "Title": "Showcase Content"
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": "panel panel--content"
+                                            },
+                                            "Children": {
+                                                "Widgets": [
+                                                    {
+                                                        "ContentItemId": "4tz1y0690ytm1xqmt6e73ssm49",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Heading",
+                                                        "DisplayText": "Showcase",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "HeadingPart": {
+                                                            "Level": 2,
+                                                            "Text": "Showcase"
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": null
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    },
+                                                    {
+                                                        "ContentItemId": "4vc5g70sc2xc033b5435e194na",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Lorem ipsum dolor sit amet, consectetur adipiscing...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": "text--bold"
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    },
+                                                    {
+                                                        "ContentItemId": "447q4z2ddwgaxykkbqkpdhctm6",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Sed vitae molestie nisi, a auctor nunc. Ut turpis ...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Sed vitae molestie nisi, a auctor nunc. Ut turpis sem, dictum eu metus in, maximus vestibulum ligula. Donec pellentesque ligula quis nibh sollicitudin interdum."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": null
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    },
+                                                    {
+                                                        "ContentItemId": "4e8ydknpb65h8w84vepv6h06xg",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Link",
+                                                        "DisplayText": "More Info",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "LinkPart": {
+                                                            "Text": "More Info",
+                                                            "Url": "/"
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": "button button--primary"
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        }
+                                    ]
+                                },
+                                "FlowMetadata": {
+                                    "Alignment": 3,
+                                    "Size": 100
+                                }
+                            }
+                        ]
+                    },
+                    "AutoroutePart": {
+                        "Path": "homepage",
+                        "SetHomepage": true
+                    },
+                    "TitlePart": {
+                        "Title": "Homepage"
+                    }
+                },
+                {
+                    "ContentItemId": "4m6jebtsrhszctf6n1j1cy30d1",
+                    "ContentItemVersionId": "4z7acnwpy9b8stpck7cfp4rec4",
+                    "ContentType": "Event",
+                    "DisplayText": "Community Managers’ Summit",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "Event": {
+                        "EventbriteURL": {
+                            "Text": "https://www.eventbrite.co.uk/e/guildford-gamedev-drinks-24th-january-2019-tickets-53105876105"
+                        },
+                        "Date": {
+                            "Value": "2019-08-23T17:00:00Z"
+                        },
+                        "Price": {
+                            "Text": "Free"
+                        },
+                        "Location": {
+                            "Text": "UKIE, London"
+                        },
+                        "GoogleMapURL": {
+                            "Text": "https://www.google.com/maps/place/Ukie/@51.5216218,-0.3895996,10z/data=!4m5!3m4!1s0x487604d4aa0a55ff:0xeb1ca2a663abf5c!8m2!3d51.5215506!4d-0.1094439"
+                        }
+                    },
+                    "AutoroutePart": {
+                        "Path": "event/community-managers-summit",
+                        "SetHomepage": false
+                    },
+                    "CommonPart": {},
+                    "TitlePart": {
+                        "Title": "Community Managers’ Summit"
+                    },
+                    "Content": {
+                        "Widgets": []
+                    },
+                    "Speakers": {
+                        "ContentItems": [
+                            {
+                                "ContentItemId": "4sn2h7yyrk0s02gvjyqeezmed9",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Community Manager, Sega"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": true
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            },
+                            {
+                                "ContentItemId": "486bam2bkm26p567hwdf8ee2x8",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Head of Operations at No More Robots"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": false
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            },
+                            {
+                                "ContentItemId": "4yx76tf0m6qdb1tw38h0q843wr",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Entertainment Partnerships Manager"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": false
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            },
+                            {
+                                "ContentItemId": "4n356aq1axjqaz4czqehyqmtch",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Performer, writer, podcaster and YouTuber"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": false
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            },
+                            {
+                                "ContentItemId": "495zjravd864s19pg9kfncgznn",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Lecturer in Sociology and Criminology at University of Roehampton"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": false
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            },
+                            {
+                                "ContentItemId": "42q94evc905nf50j8wvd5efe4z",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Speaker",
+                                "DisplayText": "Speaker Name",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "Speaker": {
+                                    "Occupation": {
+                                        "Text": "Freelance marketer, social media and community manager"
+                                    },
+                                    "Thumbnail": {
+                                        "Paths": []
+                                    },
+                                    "Featured": {
+                                        "Value": false
+                                    }
+                                },
+                                "TitlePart": {
+                                    "Title": "Speaker Name"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ContentItemId": "4jphvysn43v5prs4ame5psj15x",
+                    "ContentItemVersionId": "434wszhg55rsz7vvk5v50zcjwq",
+                    "ContentType": "Html",
+                    "DisplayText": "Secondary Navigation",
+                    "Latest": true,
+                    "Published": true,
+                    "ModifiedUtc": "[js: variables('now')]",
+                    "PublishedUtc": "[js: variables('now')]",
+                    "CreatedUtc": "[js: variables('now')]",
+                    "Owner": "[js: parameters('AdminUsername')]",
+                    "Author": "[js: parameters('AdminUsername')]",
+                    "Html": {},
+                    "HtmlBodyPart": {
+                        "Html": "<ul class=\"nav\">\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Past Events</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">News</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Contact</a>\r\n    </li>\r\n</ul>"
+                    },
+                    "LayerMetadata": {
+                        "Position": 1,
+                        "Zone": "FooterNav",
+                        "Layer": "Default"
+                    }
+                }
+            ]
+        }
+    ]
+}
