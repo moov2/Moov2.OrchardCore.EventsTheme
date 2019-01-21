@@ -274,6 +274,29 @@
                                 "DisplayType": null,
                                 "Position": "3"
                             }
+                        },
+                        {
+                            "PartName": "FlowPart",
+                            "Name": "Content",
+                            "Settings": {
+                                "DisplayName": "Content",
+                                "Description": "Information about the event (e.g. description, schedule, etc...)",
+                                "Position": "3"
+                            }
+                        },
+                        {
+                            "PartName": "BagPart",
+                            "Name": "Sponsors",
+                            "Settings": {
+                                "DisplayName": "Sponsors",
+                                "Description": "Companies who are kindly sponsoring the event",
+                                "Position": "5",
+                                "Editor": null,
+                                "ContainedContentTypes": [
+                                    "Sponsor"
+                                ],
+                                "DisplayType": "Summary"
+                            }
                         }
                     ]
                 },
@@ -292,6 +315,34 @@
                         {
                             "PartName": "Speaker",
                             "Name": "Speaker",
+                            "Settings": {
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "PartName": "TitlePart",
+                            "Name": "TitlePart",
+                            "Settings": {
+                                "Position": "0"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Sponsor",
+                    "DisplayName": "Sponsor",
+                    "Settings": {
+                        "Creatable": "True",
+                        "Draftable": "True",
+                        "Versionable": "True",
+                        "Listable": "True",
+                        "Securable": "True",
+                        "Stereotype": null
+                    },
+                    "ContentTypePartDefinitionRecords": [
+                        {
+                            "PartName": "Sponsor",
+                            "Name": "Sponsor",
                             "Settings": {
                                 "Position": "1"
                             }
@@ -482,6 +533,19 @@
                                 "Required": false,
                                 "Position": "3"
                             }
+                        },
+                        {
+                            "FieldName": "MediaField",
+                            "Name": "CoverImage",
+                            "Settings": {
+                                "DisplayName": "Cover Image",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Upload a hi-res image (ideally 2056x900), this will be cropped at various breakpoints to ensure an appropriately sized image is loaded to the device viewing the website.",
+                                "Required": false,
+                                "Multiple": false,
+                                "Position": "5"
+                            }
                         }
                     ]
                 },
@@ -524,6 +588,37 @@
                                 "Hint": "Indicates the speaker is featured.",
                                 "Label": "Featured",
                                 "Position": "2"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "Sponsor",
+                    "Settings": {},
+                    "ContentPartFieldDefinitionRecords": [
+                        {
+                            "FieldName": "MediaField",
+                            "Name": "Logo",
+                            "Settings": {
+                                "DisplayName": "Logo",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": null,
+                                "Required": false,
+                                "Multiple": false,
+                                "Position": "1"
+                            }
+                        },
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Website",
+                            "Settings": {
+                                "DisplayName": "Website",
+                                "Editor": "Url",
+                                "DisplayMode": null,
+                                "Hint": null,
+                                "Required": false,
+                                "Position": "0"
                             }
                         }
                     ]
@@ -588,7 +683,7 @@
                     "Author": "[js: parameters('AdminUsername')]",
                     "Html": {},
                     "HtmlBodyPart": {
-                        "Html": "<ul class=\"nav\">\r\n    <li class=\"nav__item nav__item--cta\">\r\n        <a href=\"/\"\">Get your free ticket</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Past Events</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">News</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Contact</a>\r\n    </li>\r\n</ul>"
+                        "Html": "<ul class=\"nav\">\r\n    <li class=\"nav__item nav__item--cta\">\r\n        <a href=\"https://www.eventbrite.co.uk/\">Get your free ticket</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Past Events</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">News</a>\r\n    </li>\r\n    <li class=\"nav__item\">\r\n        <a href=\"/\">Contact</a>\r\n    </li>\r\n</ul>"
                     },
                     "LayerMetadata": {
                         "Position": 1,
@@ -610,7 +705,7 @@
                     "Author": "[js: parameters('AdminUsername')]",
                     "Html": {},
                     "HtmlBodyPart": {
-                        "Html": "Event Name"
+                        "Html": "<a href=\"/\" class=\"link--light\">Event Name</a>"
                     },
                     "LayerMetadata": {
                         "Position": 1,
@@ -948,7 +1043,7 @@
                                             },
                                             "HtmlAttributesPart": {
                                                 "Id": null,
-                                                "CssClasses": "text--centered"
+                                                "CssClasses": "text--centered disable-effect"
                                             },
                                             "FlowMetadata": {
                                                 "Alignment": 3,
@@ -1041,7 +1136,7 @@
                                                         },
                                                         "HtmlAttributesPart": {
                                                             "Id": null,
-                                                            "CssClasses": null
+                                                            "CssClasses": "disable-effect"
                                                         },
                                                         "FlowMetadata": {
                                                             "Alignment": 3,
@@ -1159,19 +1254,24 @@
                     "Author": "[js: parameters('AdminUsername')]",
                     "Event": {
                         "EventbriteURL": {
-                            "Text": "https://www.eventbrite.co.uk/e/guildford-gamedev-drinks-24th-january-2019-tickets-53105876105"
+                            "Text": "https://www.eventbrite.co.uk/"
                         },
                         "Date": {
                             "Value": "2019-08-23T17:00:00Z"
                         },
                         "Price": {
-                            "Text": "Free"
+                            "Text": "FREE"
                         },
                         "Location": {
                             "Text": "UKIE, London"
                         },
                         "GoogleMapURL": {
                             "Text": "https://www.google.com/maps/place/Ukie/@51.5216218,-0.3895996,10z/data=!4m5!3m4!1s0x487604d4aa0a55ff:0xeb1ca2a663abf5c!8m2!3d51.5215506!4d-0.1094439"
+                        },
+                        "CoverImage": {
+                            "Paths": [
+                                "covers/example-hero-background.png"
+                            ]
                         }
                     },
                     "AutoroutePart": {
@@ -1183,15 +1283,168 @@
                         "Title": "Community Managers’ Summit"
                     },
                     "Content": {
-                        "Widgets": []
+                        "Widgets": [
+                            {
+                                "ContentItemId": "4f93ehdp9491jv2pv00k04zsny",
+                                "ContentItemVersionId": null,
+                                "ContentType": "Section",
+                                "DisplayText": "About",
+                                "Latest": false,
+                                "Published": false,
+                                "ModifiedUtc": "[js: variables('now')]",
+                                "PublishedUtc": null,
+                                "CreatedUtc": null,
+                                "Owner": null,
+                                "Author": "[js: parameters('AdminUsername')]",
+                                "TitlePart": {
+                                    "Title": "About"
+                                },
+                                "SectionPart": {},
+                                "HtmlAttributesPart": {
+                                    "Id": null,
+                                    "CssClasses": "section--content section--plain"
+                                },
+                                "Content": {
+                                    "Widgets": [
+                                        {
+                                            "ContentItemId": "4c8902faqx54jtewbw9t6wtsm4",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Heading",
+                                            "DisplayText": "About",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "HeadingPart": {
+                                                "Level": 2,
+                                                "Text": "About"
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": null
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        },
+                                        {
+                                            "ContentItemId": "4mrm7whtcfr19ybqmm2x9x2tnc",
+                                            "ContentItemVersionId": null,
+                                            "ContentType": "Media",
+                                            "DisplayText": "Description & Schedule",
+                                            "Latest": false,
+                                            "Published": false,
+                                            "ModifiedUtc": "[js: variables('now')]",
+                                            "PublishedUtc": null,
+                                            "CreatedUtc": null,
+                                            "Owner": null,
+                                            "Author": "[js: parameters('AdminUsername')]",
+                                            "TitlePart": {
+                                                "Title": "Description & Schedule"
+                                            },
+                                            "MediaItems": {
+                                                "ContentItems": [
+                                                    {
+                                                        "ContentItemId": "47erycpprbzyjrp87g9ttaw2mx",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Html",
+                                                        "DisplayText": null,
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "HtmlBodyPart": {
+                                                            "Html": "<ul class=\"list list--vertical\">\r\n    <li><span class=\"text--bold\">18:00</span> Doors Open</li>\r\n    <li><span class=\"text--bold\">18:45</span> UKIE Hub crawl welcome</li>\r\n    <li>\r\n        <span class=\"text--bold\">19:00</span> Speakers\r\n        <ul class=\"list list--vertical\">\r\n            <li>Jenna Pittman, Criterion Games</li>\r\n            <li>Teri Perkins, Edge Case Games</li>\r\n            <li>Steven Alexander, Mojiworks</li>\r\n            <li>Brooke Roberts, 22cans</li>\r\n        </ul>\r\n    </li>\r\n    <li><span class=\"text--bold\">20:00</span> Drinks</li>\r\n    <li><span class=\"text--bold\">20:10</span> Pizza + Networking</li>\r\n</ul>"
+                                                        },
+                                                        "Html": {}
+                                                    }
+                                                ]
+                                            },
+                                            "Body": {
+                                                "Widgets": [
+                                                    {
+                                                        "ContentItemId": "4t28k1j9950yx33r7w2dm2xhd1",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Lorem ipsum dolor sit amet, consectetur adipiscing...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id tempor orci. Fusce at purus leo. Nulla facilisi. Aenean ac ullamcorper nunc, eu congue odio. Sed at ipsum eu diam vestibulum lobortis."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": "text--bold"
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    },
+                                                    {
+                                                        "ContentItemId": "435n2d10tkvgyzsfgssk0mjbwx",
+                                                        "ContentItemVersionId": null,
+                                                        "ContentType": "Paragraph",
+                                                        "DisplayText": "Sed vitae molestie nisi, a auctor nunc. Ut turpis ...",
+                                                        "Latest": false,
+                                                        "Published": false,
+                                                        "ModifiedUtc": "[js: variables('now')]",
+                                                        "PublishedUtc": null,
+                                                        "CreatedUtc": null,
+                                                        "Owner": null,
+                                                        "Author": "[js: parameters('AdminUsername')]",
+                                                        "ParagraphPart": {
+                                                            "Text": "Sed vitae molestie nisi, a auctor nunc. Ut turpis sem, dictum eu metus in, maximus vestibulum ligula. Donec pellentesque ligula quis nibh sollicitudin interdum. In ut convallis massa, fringilla tempor lacus. Quisque quis ultrices ante. Etiam sagittis, tellus sit amet commodo tristique, elit magna feugiat mi, non accumsan elit ex eget neque. Nunc leo nulla, fermentum non ante eget, sodales finibus sem. In vel molestie urna."
+                                                        },
+                                                        "HtmlAttributesPart": {
+                                                            "Id": null,
+                                                            "CssClasses": null
+                                                        },
+                                                        "FlowMetadata": {
+                                                            "Alignment": 3,
+                                                            "Size": 100
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "HtmlAttributesPart": {
+                                                "Id": null,
+                                                "CssClasses": "media--spaced media--rev align-top"
+                                            },
+                                            "FlowMetadata": {
+                                                "Alignment": 3,
+                                                "Size": 100
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Section": {},
+                                "FlowMetadata": {
+                                    "Alignment": 3,
+                                    "Size": 100
+                                }
+                            }
+                        ]
                     },
                     "Speakers": {
                         "ContentItems": [
                             {
-                                "ContentItemId": "4sn2h7yyrk0s02gvjyqeezmed9",
+                                "ContentItemId": "4p5d0tqg4nn2ey32x5zj4enbm2",
                                 "ContentItemVersionId": null,
                                 "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "DisplayText": "Jenna Pittman",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1201,24 +1454,26 @@
                                 "Author": "[js: parameters('AdminUsername')]",
                                 "Speaker": {
                                     "Occupation": {
-                                        "Text": "Community Manager, Sega"
+                                        "Text": "Criterion Games"
                                     },
                                     "Thumbnail": {
-                                        "Paths": []
+                                        "Paths": [
+                                            "logos/logo-criterion-games.png"
+                                        ]
                                     },
                                     "Featured": {
                                         "Value": true
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Jenna Pittman"
                                 }
                             },
                             {
-                                "ContentItemId": "486bam2bkm26p567hwdf8ee2x8",
+                                "ContentItemId": "4s6g9y35f150t18fn0jzth9d5t",
                                 "ContentItemVersionId": null,
                                 "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "DisplayText": "Steven Alexander",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1228,24 +1483,26 @@
                                 "Author": "[js: parameters('AdminUsername')]",
                                 "Speaker": {
                                     "Occupation": {
-                                        "Text": "Head of Operations at No More Robots"
+                                        "Text": "Mojiworks"
                                     },
                                     "Thumbnail": {
-                                        "Paths": []
+                                        "Paths": [
+                                            "logos/logo-mojiworks.png"
+                                        ]
                                     },
                                     "Featured": {
                                         "Value": false
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Steven Alexander"
                                 }
                             },
                             {
-                                "ContentItemId": "4yx76tf0m6qdb1tw38h0q843wr",
+                                "ContentItemId": "48tbw7q4p8e1074xb8x004tcds",
                                 "ContentItemVersionId": null,
                                 "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "DisplayText": "Teri Perkins",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1258,21 +1515,23 @@
                                         "Text": "Entertainment Partnerships Manager"
                                     },
                                     "Thumbnail": {
-                                        "Paths": []
+                                        "Paths": [
+                                            "logos/logo-edge-case-games.png"
+                                        ]
                                     },
                                     "Featured": {
                                         "Value": false
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Teri Perkins"
                                 }
                             },
                             {
-                                "ContentItemId": "4n356aq1axjqaz4czqehyqmtch",
+                                "ContentItemId": "44y39he1dtm9cv757axmd87vmq",
                                 "ContentItemVersionId": null,
                                 "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "DisplayText": "Brooke Roberts",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1285,21 +1544,27 @@
                                         "Text": "Performer, writer, podcaster and YouTuber"
                                     },
                                     "Thumbnail": {
-                                        "Paths": []
+                                        "Paths": [
+                                            "logos/logo-22cans.png"
+                                        ]
                                     },
                                     "Featured": {
                                         "Value": false
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Brooke Roberts"
                                 }
-                            },
+                            }
+                        ]
+                    },
+                    "Sponsors": {
+                        "ContentItems": [
                             {
-                                "ContentItemId": "495zjravd864s19pg9kfncgznn",
+                                "ContentItemId": "44a683s8eedxexmtgy8e6k6hn5",
                                 "ContentItemVersionId": null,
-                                "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "ContentType": "Sponsor",
+                                "DisplayText": "Mojiworks",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1307,26 +1572,23 @@
                                 "CreatedUtc": null,
                                 "Owner": null,
                                 "Author": "[js: parameters('AdminUsername')]",
-                                "Speaker": {
-                                    "Occupation": {
-                                        "Text": "Lecturer in Sociology and Criminology at University of Roehampton"
-                                    },
-                                    "Thumbnail": {
+                                "Sponsor": {
+                                    "Logo": {
                                         "Paths": []
                                     },
-                                    "Featured": {
-                                        "Value": false
+                                    "Website": {
+                                        "Text": "https://www.mojiworks.com/"
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Mojiworks"
                                 }
                             },
                             {
-                                "ContentItemId": "42q94evc905nf50j8wvd5efe4z",
+                                "ContentItemId": "4szpstj9jrvhrwwv4cet66nqw0",
                                 "ContentItemVersionId": null,
-                                "ContentType": "Speaker",
-                                "DisplayText": "Speaker Name",
+                                "ContentType": "Sponsor",
+                                "DisplayText": "Moov2",
                                 "Latest": false,
                                 "Published": false,
                                 "ModifiedUtc": "[js: variables('now')]",
@@ -1334,19 +1596,18 @@
                                 "CreatedUtc": null,
                                 "Owner": null,
                                 "Author": "[js: parameters('AdminUsername')]",
-                                "Speaker": {
-                                    "Occupation": {
-                                        "Text": "Freelance marketer, social media and community manager"
+                                "Sponsor": {
+                                    "Logo": {
+                                        "Paths": [
+                                            "logos/logo-moov2.png"
+                                        ]
                                     },
-                                    "Thumbnail": {
-                                        "Paths": []
-                                    },
-                                    "Featured": {
-                                        "Value": false
+                                    "Website": {
+                                        "Text": "https://moov2.com"
                                     }
                                 },
                                 "TitlePart": {
-                                    "Title": "Speaker Name"
+                                    "Title": "Moov2"
                                 }
                             }
                         ]
@@ -1375,6 +1636,35 @@
                     }
                 }
             ]
-        }
+        },
+        {
+            "name": "media",
+            "Files": [
+              {
+                "SourcePath": "../wwwroot/img/example-hero-background.png",
+                "TargetPath": "covers/example-hero-background.png"
+              },
+              {
+                "SourcePath": "../wwwroot/img/logo-22cans.png",
+                "TargetPath": "logos/logo-22cans.png"
+              },
+              {
+                "SourcePath": "../wwwroot/img/logo-criterion-games.png",
+                "TargetPath": "logos/logo-criterion-games.png"
+              },
+              {
+                "SourcePath": "../wwwroot/img/logo-edge-case-games.png",
+                "TargetPath": "logos/logo-edge-case-games.png"
+              },
+              {
+                "SourcePath": "../wwwroot/img/logo-mojiworks.png",
+                "TargetPath": "logos/logo-mojiworks.png"
+              },
+              {
+                "SourcePath": "../wwwroot/img/logo-moov2.png",
+                "TargetPath": "logos/logo-moov2.png"
+              }
+            ]
+          }
     ]
 }

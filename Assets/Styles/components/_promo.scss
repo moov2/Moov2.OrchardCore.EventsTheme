@@ -9,6 +9,12 @@
 .promo {
     display: flex;
     flex-direction: row;
+
+    font-family: $promo-font-family;
+
+    a {
+        font-family: $font-family-default;
+    }
 }
 
     .promo__info {

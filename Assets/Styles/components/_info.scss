@@ -14,12 +14,15 @@
     .info__title {
         @include rem(margin-bottom, $spacing-large);
 
+        color: $info-title-color;
         text-transform: uppercase;
     }
 
     .info__content {
         @include rem(margin-bottom, $spacing-small);
 
+        color: $info-content-color;
+        @include rem(font-size, $info-content-font-size);
         font-weight: bold;
     }
 
@@ -28,5 +31,15 @@
     }
 
     .info__action {
+        color: $info-action-color;
 
+        a {
+            text-decoration: none;
+
+            &:active,
+            &:focus,
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }

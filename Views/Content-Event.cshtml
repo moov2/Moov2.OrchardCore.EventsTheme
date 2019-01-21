@@ -1,89 +1,16 @@
-﻿@using OrchardCore.ContentManagement;
+﻿@inject OrchardCore.ContentManagement.Display.IContentItemDisplayManager ContentItemDisplayManager
+@inject OrchardCore.DisplayManagement.ModelBinding.IUpdateModelAccessor ModelUpdaterAccessor
 
 @{
-    var eventbriteUrl = Model.ContentItem.Content.Event.EventbriteURL.Text;
-    var googleMapUrl = Model.ContentItem.Content.Event.GoogleMapURL.Text;
-    var location = Model.ContentItem.Content.Event.Location.Text;
-    var price = Model.ContentItem.Content.Event.Price.Text;
-    var date = Model.ContentItem.Content.Event.Date.Value;
-    var featuredSpeaker = GetFeaturedSpeaker(Model.ContentItem.Content.Speakers.ContentItems);
+    var updater = ModelUpdaterAccessor.ModelUpdater;
 }
 
-<section class="section section--featured">
-    <div class="section__content">
-        <h1>@Model.ContentItem.DisplayText</h1>
+@await DisplayAsync(await ContentItemDisplayManager.BuildDisplayAsync(Model.ContentItem, updater, "Summary"))
 
-        @if (eventbriteUrl != null)
-        {
-            <p><a href="@eventbriteUrl" class="button button--cta">Get your free ticket</a></p>
-        }
+@await DisplayAsync(Model.Content.Named("Content"))
+
+<section class="section section--content section--plain">
+    <div class="section__content">
+        @await DisplayAsync(Model.Content.Named("Speakers"))
     </div>
 </section>
-
-<section class="section">
-    <div class="section__content">
-        <div class="promo">
-            <div class="promo__info">
-                <ul class="promo__info-items">
-                    <li class="info">
-                        <div class="info__title">When</div>
-                        <div class="info__content">@date.ToString("dd/MM/yyyy")</div>
-                        @if (eventbriteUrl != null)
-                        {
-                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
-                        }
-                    </li>
-                    <li class="info">
-                        <div class="info__title">Where</div>
-                        <div class="info__content">@location</div>
-                        @if (googleMapUrl != null)
-                        {
-                            <div class="info__action"><a href="@googleMapUrl">View map &raquo;</a></div>
-                        }
-                    </li>
-                    <li class="info">
-                        <div class="info__title">Price</div>
-                        <div class="info__content">@price</div>
-                        @if (eventbriteUrl != null)
-                        {
-                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
-                        }
-                    </li>
-                </ul>
-            </div>
-
-            <div class="promo__featured">
-                <div class="media">
-                    <div class="placeholder placeholder--thumbnail-large"></div>
-
-                    <div class="media__body">
-                        <div class="info">
-                            <div class="info__title">Featured Speaker</div>
-
-                            @if (featuredSpeaker != null)
-                            {
-                                <div class="info__content">@featuredSpeaker.TitlePart.Title</div>
-                                <div class="info__meta">@featuredSpeaker.Speaker.Occupation.Text</div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-@functions {
-    public static dynamic GetFeaturedSpeaker(dynamic speakers)
-    {
-        foreach (var speaker in speakers)
-        {
-            if (speaker.Speaker.Featured.Value == "True")
-            {
-                return speaker;
-            }
-        }
-
-        return null;
-    }
-}

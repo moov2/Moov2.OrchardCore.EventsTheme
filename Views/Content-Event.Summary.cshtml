@@ -1,0 +1,112 @@
+﻿@using OrchardCore.Media.Processing
+
+@{
+    var eventbriteUrl = Model.ContentItem.Content.Event.EventbriteURL.Text;
+    var googleMapUrl = Model.ContentItem.Content.Event.GoogleMapURL.Text;
+    var location = Model.ContentItem.Content.Event.Location.Text;
+    var price = Model.ContentItem.Content.Event.Price.Text;
+    var date = Model.ContentItem.Content.Event.Date.Value;
+
+    var coverImage = Model.ContentItem.Content.Event.CoverImage?.Paths.Count > 0 ? (string)Model.ContentItem.Content.Event.CoverImage.Paths[0] : string.Empty;
+}
+
+<section class="section section--featured">
+    <div class="section__content">
+        <h1>@Model.ContentItem.DisplayText</h1>
+
+        @if (eventbriteUrl != null)
+        {
+            <p><a href="@eventbriteUrl" class="button button--cta">Get your free ticket</a></p>
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(coverImage))
+    {
+        <picture class="section__background">
+            <!--[if IE 9]><video style="display: none;"><![endif]-->
+            <source srcset="@Orchard.AssetUrl(coverImage)" media="(min-width: 1921px)" />
+            <source srcset="@Orchard.AssetUrl(coverImage, width: 1920 , height: 900, resizeMode: ResizeMode.Crop)" media="(min-width: 1651px)" />
+            <source srcset="@Orchard.AssetUrl(coverImage, width: 1400 , height: 600, resizeMode: ResizeMode.Crop)" media="(min-width: 1391px)" />
+            <source srcset="@Orchard.AssetUrl(coverImage, width: 1280 , height: 768, resizeMode: ResizeMode.Crop)" media="(min-width: 1px)" />
+            <!--[if IE 9]></video><![endif]-->
+            <img src="@Orchard.AssetUrl(coverImage)" />
+
+            <noscript>
+                <img src="@Orchard.AssetUrl(coverImage)" />
+            </noscript>
+        </picture>
+    }
+</section>
+
+<section class="section">
+    <div class="section__content">
+        <div class="promo">
+            <div class="promo__info">
+                <ul class="promo__info-items">
+                    <li class="info">
+                        <div class="info__title">When</div>
+                        <div class="info__content">@date.ToString("dd/MM/yyyy")</div>
+                        @if (eventbriteUrl != null)
+                        {
+                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket</a></div>
+                        }
+                    </li>
+                    <li class="info">
+                        <div class="info__title">Where</div>
+                        <div class="info__content">@location</div>
+                        @if (googleMapUrl != null)
+                        {
+                            <div class="info__action"><a href="@googleMapUrl">View map &raquo;</a></div>
+                        }
+                    </li>
+                    <li class="info">
+                        <div class="info__title">Price</div>
+                        <div class="info__content">@price</div>
+                        @if (eventbriteUrl != null)
+                        {
+                            <div class="info__action"><a href="@eventbriteUrl">Get your ticket &raquo;</a></div>
+                        }
+                    </li>
+                </ul>
+            </div>
+
+            <div class="promo__featured">
+                <div class="info">
+                    <div class="info__title">Event Sponsors</div>
+
+                    <ul class="list list--horizontal-tight">
+                        @foreach (var sponsor in Model.ContentItem.Content.Sponsors.ContentItems)
+                        {
+                        <li class="list__item">
+                            @if (!string.IsNullOrEmpty((string)sponsor.Sponsor.Website.Text))
+                            {
+                                <a href="@sponsor.Sponsor.Website.Text">
+                                    @if (sponsor.Sponsor.Logo.Paths.Count == 0)
+                                    {
+                                        <span class="placeholder placeholder--thumbnail-small"></span>
+                                    }
+                                    else
+                                    {
+                                        <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 55, height: 55, resizeMode: ResizeMode.Crop)" alt="Logo for @sponsor.DisplayText" />
+                                    }
+                                </a>
+                            }
+                            else
+                            {
+                                if (sponsor.Sponsor.Logo.Paths.Count == 0)
+                                {
+                                    <span class="placeholder placeholder--thumbnail-small"></span>
+                                }
+                                else
+                                {
+                                    <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 55, height: 55, resizeMode: ResizeMode.Crop)" alt="Logo for @sponsor.DisplayText" />
+                                }
+                            }
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

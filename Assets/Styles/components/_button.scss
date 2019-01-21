@@ -1,5 +1,5 @@
 /**
- * $BUTTONS
+ * $BUTTON
  */
 
 /**
@@ -19,7 +19,11 @@ a.button--cta,
     @include rem(padding-top, $spacing-base);
 
     background-color: $button-cta-background;
+    @include rem(border-top-left-radius, $button-cta-border-radius);
+    @include rem(border-bottom-right-radius, $button-cta-border-radius);
 
+    color: $button-cta-color;
+    font-weight: bold;
     @include rem(line-height, $button-cta-line-height);
     text-decoration: none;
     text-transform: uppercase;

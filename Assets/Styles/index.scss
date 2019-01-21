@@ -27,14 +27,16 @@
 @import "base/html";
 @import "base/link";
 @import "base/paragraph";
+@import "base/picture";
 
 /**
  * Reusable components.
  */
 
-@import "components/buttons";
+@import "components/button";
 @import "components/embed";
 @import "components/info";
+@import "components/link";
 @import "components/list";
 @import "components/media";
 @import "components/nav";
@@ -48,5 +50,6 @@
  * Trump styles for tweaking element styles
  */
 
+@import "trumps/effect";
 @import "trumps/margin";
 @import "trumps/text";

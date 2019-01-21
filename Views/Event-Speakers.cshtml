@@ -1,0 +1,18 @@
+﻿@using OrchardCore.Flows.ViewModels
+
+@model BagPartViewModel
+@inject OrchardCore.ContentManagement.Display.IContentItemDisplayManager ContentItemDisplayManager
+
+<h2>Speakers</h2>
+
+<ul class="list list--horizontal list--double">
+
+    @foreach (var item in Model.BagPart.ContentItems)
+    {
+        var itemContent = await ContentItemDisplayManager.BuildDisplayAsync(item, Model.BuildPartDisplayContext.Updater, Model.Settings.DisplayType ?? "Summary", Model.BuildPartDisplayContext.GroupId);
+
+        <li class="list__item">
+            @await DisplayAsync(itemContent)
+        </li>
+    }
+</ul>

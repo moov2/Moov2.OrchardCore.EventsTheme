@@ -8,7 +8,7 @@
 
 @if (latestEvent != null)
 {
-    var itemContent = await ContentItemDisplayManager.BuildDisplayAsync(latestEvent, updater);
+    var itemContent = await ContentItemDisplayManager.BuildDisplayAsync(latestEvent, updater, "Summary");
 
     @await DisplayAsync(itemContent)
 }

@@ -11,22 +11,36 @@
  */
 
 $color-black: #1b1b1b;
+
+$color-dark: #2d2c2c;
 $color-light: #f9f9f9;
 $color-grey: #e5e5e5;
+$color-grey-dark: #c4c4c4;
 $color-grey-light: #f4f4f4;
 $color-white: #fff;
 
-$color-cta: #c4c4c4;
+$color-cta: #f05825;
+$color-cta-text: $color-light;
 $color-primary: $color-black;
+
+$color-text-grey: #929292;
+
+/**
+ * Design settings
+ */
+
+$design-border-radius: 2rem;
 
 /**
  * Font settings
  */
 
-$font-color-default: $color-black;
+$font-color-default: $color-dark;
 $font-color-alt: $color-light;
+$font-color-subtle: $color-text-grey;
 
 $font-family-default: 'Roboto', sans-serif;
+$font-family-heading: 'Josefin Sans', sans-serif;
 
 $font-size-default-em: 1.8em;
 
@@ -35,6 +49,7 @@ $font-size-sub-heading: 3.6rem;
 $font-size-large: 2.4rem;
 $font-size-default: 1.8rem;
 $font-size-small: 1.6rem;
+$font-size-tiny: 1.4rem;
 
 $font-line-height-heading: 8.4rem;
 $font-line-height-sub-heading: 4.2rem;
@@ -55,23 +70,47 @@ $spacing-xx-large: 16rem;
  */
 
 $button-cta-background: $color-cta;
+$button-cta-color: $color-cta-text;
 $button-cta-line-height: 2.1rem;
+$button-cta-border-radius: $design-border-radius;
 
 $button-primary-background: $color-primary;
 $button-primary-color: $color-light;
 $button-primary-line-height: 2.1rem;
 
 /**
+ * Heading settings.
+ */
+
+$heading-effect-height: .9rem;
+$heading-effect-left: -4.8rem;
+$heading-effect-top: 1.1rem;
+$heading-effect-width: 3rem;
+
+/**
  * Info settings.
  */
 
-$info-background: $color-light;
+$info-background: $color-dark;
+$info-title-color: $color-text-grey;
+
+$info-content-color: $font-color-alt;
+$info-content-font-size: $font-size-large;
+
+$info-action-color: $color-cta;
+
+/**
+ * List settings.
+ */
+
+$list-sub-margin: 5rem;
 
 /**
  * Navigation settings.
  */
 
-$nav-cta-background: $color-grey;
+$nav-cta-background: $color-cta;
+$nav-cta-color: $color-cta-text;
 
 /**
  * Panel settings.
@@ -85,21 +124,25 @@ $panel-white: $color-white;
  * Placeholder settings.
  */
 
-$placeholder-background-color: $color-cta;
+$placeholder-background-color: #c4c4c4;
 
 /**
  * Promo settings.
  */
 
 $promo-featured-breakout-unit: 2rem;
+$promo-font-family: $font-family-heading;
 
 /**
  * Section settings.
  */
 
-$section-background-cta: $color-cta;
+$section-background-cta: $color-grey-dark;
 $section-background-light: $color-light;
+$section-background-plain: $color-white;
+$section-background-z: 5;
 
+$section-content-z: 25;
 $section-content-width: 90.8rem;
 $section-content-wide-width: 102rem;
 $section-content-promo-width: 114.4rem;
@@ -113,5 +156,12 @@ $section-featured-background: $color-grey-light;
  */
 
 $toolbar-background: $color-black;
+
+$toolbar-font-family: $font-family-heading;
+
+$toolbar-logo-color: $color-light;
+
+$toolbar-nav-color: $color-text-grey;
+$toolbar-nav-font-size: $font-size-tiny;
 
 $toolbar-height: 5rem;

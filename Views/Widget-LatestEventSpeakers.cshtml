@@ -1,21 +1,28 @@
 ﻿@{
     var latestEvent = Orchard.ContentQueryAsync("LatestEvent").Result.SingleOrDefault();
-
 }
 
 @if (latestEvent != null)
 {
-    <p class="text--uppercase margin--bottom-large">Full Speaker Line-up</p>
+    <h2>Speakers</h2>
+
     <ul class="list list--horizontal list--double">
     @foreach (var speaker in latestEvent.ContentItem.Content.Speakers.ContentItems)
     {
         <li class="list__item">
             <div class="media media--tight">
-                <div class="placeholder placeholder--thumbnail"></div>
+                @if (speaker.Speaker.Thumbnail.Paths.Count > 0)
+                {
+                    <img src="@Orchard.AssetUrl((string)speaker.Speaker.Thumbnail.Paths[0])" alt="Thumbnail for @speaker.TitlePart.Title" class="effect--rounded-border" />
+                }
+                else
+                {
+                    <div class="placeholder placeholder--thumbnail"></div>
+                }
 
                 <div class="media__body">
                     <h3>@speaker.TitlePart.Title</h3>
-                    <p class="text--italic">@speaker.Speaker.Occupation.Text</p>
+                    <p class="text--subtle text--italic margin--bottom-none">@speaker.Speaker.Occupation.Text</p>
                 </div>
             </div>
         </li>

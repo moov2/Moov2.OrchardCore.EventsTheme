@@ -1,0 +1,12 @@
+/**
+ * $EFFECT
+ */
+
+/**
+ * Trumps for applying design effects.
+ */
+
+.effect--rounded-border {
+    @include rem(border-top-left-radius, $design-border-radius);
+    @include rem(border-bottom-right-radius, $design-border-radius);
+}

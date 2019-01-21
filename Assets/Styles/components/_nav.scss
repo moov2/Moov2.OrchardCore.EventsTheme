@@ -46,6 +46,10 @@
      */
     .nav__item--cta {
         background-color: $nav-cta-background;
+    }
 
+    .nav__item--cta a,
+    .toolbar .nav__item--cta a {
+        color: $nav-cta-color;
         font-weight: bold;
     }

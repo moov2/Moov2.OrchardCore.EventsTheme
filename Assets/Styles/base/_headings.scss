@@ -10,6 +10,8 @@ h1, h2, h3 {
     display: block;
     margin-top: 0;
 
+    font-family: $font-family-heading;
+
     a {
         text-decoration: none;
         
@@ -22,14 +24,38 @@ h1, h2, h3 {
 }
 
 h1 {
+    color: $font-color-alt;
     @include rem(font-size, $font-size-heading);
     @include rem(line-height, $font-line-height-heading);
 }
 
 h2 {
+    display: block;
+    position: relative;
+
     @include rem(font-size, $font-size-sub-heading);
     @include rem(line-height, $font-line-height-sub-heading);
     text-transform: uppercase;
+
+    &:before {
+        @include rem(height, $heading-effect-height);
+        @include rem(left, $heading-effect-left);
+        position: absolute;
+        @include rem(top, $heading-effect-top);
+        @include rem(width, $heading-effect-width);
+
+        @include rem(border-top-left-radius, $heading-effect-width);
+        @include rem(border-bottom-right-radius, $heading-effect-width);
+        background-color: $color-cta;
+
+        content: "";
+    }
+
+    &.disable-effect {
+        &:before {
+            display: none;
+        }
+    }
 }
 
 h3 {

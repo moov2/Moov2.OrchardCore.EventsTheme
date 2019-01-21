@@ -1,0 +1,21 @@
+﻿@{
+    var speaker = Model.ContentItem.Content.Speaker;
+    var name = Model.ContentItem.DisplayText;
+    var occupation = speaker.Occupation.Text;
+}
+
+<div class="media media--tight">
+    @if (speaker.Thumbnail.Paths.Count > 0)
+    {
+        <img src="@Orchard.AssetUrl((string)speaker.Thumbnail.Paths[0])" alt="Thumbnail for @name" class="effect--rounded-border" />
+    }
+    else
+    {
+        <div class="placeholder placeholder--thumbnail"></div>
+    }
+
+    <div class="media__body">
+        <h3>@name</h3>
+        <p class="text--subtle text--italic margin--bottom-none">@occupation</p>
+    </div>
+</div>
