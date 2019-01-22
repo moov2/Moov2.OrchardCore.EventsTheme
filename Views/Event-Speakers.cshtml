@@ -3,6 +3,8 @@
 @model BagPartViewModel
 @inject OrchardCore.ContentManagement.Display.IContentItemDisplayManager ContentItemDisplayManager
 
+@if (Model.BagPart.ContentItems.Any())
+{
 <h2>Speakers</h2>
 
 <ul class="list list--horizontal list--double">
@@ -16,3 +18,4 @@
         </li>
     }
 </ul>
+}

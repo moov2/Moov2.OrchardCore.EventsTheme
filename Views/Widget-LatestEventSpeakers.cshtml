@@ -2,7 +2,7 @@
     var latestEvent = Orchard.ContentQueryAsync("LatestEvent").Result.SingleOrDefault();
 }
 
-@if (latestEvent != null)
+@if (latestEvent != null && latestEvent.ContentItem.Content.Speakers.ContentItems.Count > 0)
 {
     <h2>Speakers</h2>
 
