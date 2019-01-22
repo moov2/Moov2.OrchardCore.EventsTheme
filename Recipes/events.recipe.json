@@ -483,7 +483,7 @@
                                 "DisplayMode": null,
                                 "Hint": "URL to the EventBrite page.",
                                 "Required": false,
-                                "Position": "4"
+                                "Position": "5"
                             }
                         },
                         {
@@ -495,7 +495,7 @@
                                 "DisplayMode": null,
                                 "Hint": "Date of the event.",
                                 "Required": true,
-                                "Position": "0"
+                                "Position": "1"
                             }
                         },
                         {
@@ -507,7 +507,7 @@
                                 "DisplayMode": null,
                                 "Hint": "Price to attend the event.",
                                 "Required": true,
-                                "Position": "1"
+                                "Position": "2"
                             }
                         },
                         {
@@ -519,7 +519,7 @@
                                 "DisplayMode": null,
                                 "Hint": "Where the event is being held.",
                                 "Required": false,
-                                "Position": "2"
+                                "Position": "3"
                             }
                         },
                         {
@@ -531,7 +531,7 @@
                                 "DisplayMode": null,
                                 "Hint": "Link to location on Google Maps",
                                 "Required": false,
-                                "Position": "3"
+                                "Position": "4"
                             }
                         },
                         {
@@ -544,7 +544,19 @@
                                 "Hint": "Upload a hi-res image (ideally 2056x900), this will be cropped at various breakpoints to ensure an appropriately sized image is loaded to the device viewing the website.",
                                 "Required": false,
                                 "Multiple": false,
-                                "Position": "5"
+                                "Position": "6"
+                            }
+                        },
+                        {
+                            "FieldName": "TextField",
+                            "Name": "Subtitle",
+                            "Settings": {
+                                "DisplayName": "Subtitle",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": "Displayed underneath the title.",
+                                "Required": false,
+                                "Position": "0"
                             }
                         }
                     ]
@@ -1640,31 +1652,31 @@
         {
             "name": "media",
             "Files": [
-              {
-                "SourcePath": "../wwwroot/img/example-hero-background.png",
-                "TargetPath": "covers/example-hero-background.png"
-              },
-              {
-                "SourcePath": "../wwwroot/img/logo-22cans.png",
-                "TargetPath": "logos/logo-22cans.png"
-              },
-              {
-                "SourcePath": "../wwwroot/img/logo-criterion-games.png",
-                "TargetPath": "logos/logo-criterion-games.png"
-              },
-              {
-                "SourcePath": "../wwwroot/img/logo-edge-case-games.png",
-                "TargetPath": "logos/logo-edge-case-games.png"
-              },
-              {
-                "SourcePath": "../wwwroot/img/logo-mojiworks.png",
-                "TargetPath": "logos/logo-mojiworks.png"
-              },
-              {
-                "SourcePath": "../wwwroot/img/logo-moov2.png",
-                "TargetPath": "logos/logo-moov2.png"
-              }
+                {
+                    "SourcePath": "../wwwroot/img/example-hero-background.png",
+                    "TargetPath": "covers/example-hero-background.png"
+                },
+                {
+                    "SourcePath": "../wwwroot/img/logo-22cans.png",
+                    "TargetPath": "logos/logo-22cans.png"
+                },
+                {
+                    "SourcePath": "../wwwroot/img/logo-criterion-games.png",
+                    "TargetPath": "logos/logo-criterion-games.png"
+                },
+                {
+                    "SourcePath": "../wwwroot/img/logo-edge-case-games.png",
+                    "TargetPath": "logos/logo-edge-case-games.png"
+                },
+                {
+                    "SourcePath": "../wwwroot/img/logo-mojiworks.png",
+                    "TargetPath": "logos/logo-mojiworks.png"
+                },
+                {
+                    "SourcePath": "../wwwroot/img/logo-moov2.png",
+                    "TargetPath": "logos/logo-moov2.png"
+                }
             ]
-          }
+        }
     ]
 }

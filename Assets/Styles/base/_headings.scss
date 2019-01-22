@@ -24,6 +24,8 @@ h1, h2, h3 {
 }
 
 h1 {
+    @include rem(margin-bottom, $spacing-base);
+
     color: $font-color-alt;
     @include rem(font-size, $font-size-sub-heading);
     @include rem(line-height, $font-line-height-sub-heading);
@@ -38,8 +40,8 @@ h2 {
     display: block;
     position: relative;
 
-    @include rem(font-size, $font-size-sub-heading);
-    @include rem(line-height, $font-line-height-sub-heading);
+    @include rem(font-size, $font-size-large);
+    @include rem(line-height, $font-line-height-large);
     text-transform: uppercase;
 
     &:before {
@@ -65,6 +67,11 @@ h2 {
         &:before {
             display: none;
         }
+    }
+
+    @include bp-min-width($heading-bp-smaller-text) {
+        @include rem(font-size, $font-size-sub-heading);
+        @include rem(line-height, $font-line-height-sub-heading);
     }
 }
 

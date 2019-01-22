@@ -7,12 +7,19 @@
     var price = Model.ContentItem.Content.Event.Price.Text;
     var date = Model.ContentItem.Content.Event.Date.Value;
 
+    var subtitle = (string)Model.ContentItem.Content.Event.Subtitle?.Text;
+
     var coverImage = Model.ContentItem.Content.Event.CoverImage?.Paths.Count > 0 ? (string)Model.ContentItem.Content.Event.CoverImage.Paths[0] : string.Empty;
 }
 
 <section class="section section--featured">
     <div class="section__content">
         <h1>@Model.ContentItem.DisplayText</h1>
+
+        @if (!string.IsNullOrEmpty(subtitle))
+        {
+            <h2 class="text--alt disable-effect">@subtitle</h2>
+        }
 
         @if (eventbriteUrl != null)
         {
