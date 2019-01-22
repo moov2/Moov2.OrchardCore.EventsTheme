@@ -8,41 +8,70 @@
 
 .promo {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     font-family: $promo-font-family;
 
     a {
         font-family: $font-family-default;
     }
+
+    @include bp-min-width($promo-bp-stacked) {
+        flex-direction: row;
+    }
 }
 
     .promo__info {
         box-sizing: border-box;
-        @include rem(padding-right, $spacing-large);
-        width: 50%;
+        width: 100%;
 
         background-color: $info-background;
+
+        @include bp-min-width($promo-bp-stacked) {
+            @include rem(padding-right, $spacing-large);
+            width: 65%;
+        }
+
+        @include bp-min-width($promo-bp-staggered) {
+            width: 50%;
+        }
     }
 
         .promo__info-items {
             align-items: center;
             display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
+            flex-direction: column;
+            justify-content: center;
             margin: 0;
             padding: 0;
         
             list-style: none;
+
+            @include bp-min-width($promo-bp-stacked) {
+                justify-content: flex-end;
+            }
+
+            @include bp-min-width($promo-bp-info-stacked) {
+                flex-direction: row;
+                justify-content: center;
+            }
         }
 
     .promo__featured {
         box-sizing: border-box;
-        width: 50%;
+        width: 100%;
 
         background-color: $color-grey;
 
         .media:first-child {
             @include rem(margin-top, -$promo-featured-breakout-unit);
+        }
+
+        @include bp-min-width($promo-bp-stacked) {
+            width: 35%;
+        }
+
+        @include bp-min-width($promo-bp-staggered) {
+            width: 50%;
         }
     }

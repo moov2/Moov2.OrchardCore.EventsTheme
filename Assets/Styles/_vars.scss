@@ -70,6 +70,7 @@ $spacing-xx-large: 16rem;
  */
 
 $button-cta-background: $color-cta;
+$button-cta-background-active: darken($color-cta, 5%);
 $button-cta-color: $color-cta-text;
 $button-cta-line-height: 2.1rem;
 $button-cta-border-radius: $design-border-radius;
@@ -86,6 +87,9 @@ $heading-effect-height: .9rem;
 $heading-effect-left: -4.8rem;
 $heading-effect-top: 1.1rem;
 $heading-effect-width: 3rem;
+
+$heading-bp-smaller-text: 800px;
+$heading-bp-remove-effect: 1045px;
 
 /**
  * Info settings.
@@ -104,6 +108,16 @@ $info-action-color: $color-cta;
  */
 
 $list-sub-margin: 5rem;
+$list-bp-double-stacked: 700px;
+$list-bp-triple-wrap: 820px;
+$list-bp-triple-stack: 600px;
+
+/**
+ * Media settings.
+ */
+
+$media-bp-tight: 800px;
+$media-bp-stack: 680px;
 
 /**
  * Navigation settings.
@@ -111,6 +125,9 @@ $list-sub-margin: 5rem;
 
 $nav-cta-background: $color-cta;
 $nav-cta-color: $color-cta-text;
+$nav-cta-background-active: darken($color-cta, 5%);
+
+$nav-bp-tight-items: 1040px;
 
 /**
  * Panel settings.
@@ -132,6 +149,10 @@ $placeholder-background-color: #c4c4c4;
 
 $promo-featured-breakout-unit: 2rem;
 $promo-font-family: $font-family-heading;
+
+$promo-bp-staggered: 1280px;
+$promo-bp-stacked: 1100px;
+$promo-bp-info-stacked: 500px;
 
 /**
  * Section settings.
@@ -165,3 +186,6 @@ $toolbar-nav-color: $color-text-grey;
 $toolbar-nav-font-size: $font-size-tiny;
 
 $toolbar-height: 5rem;
+
+$toolbar-bp-reduce-spacing: 768px;
+$toolbar-bp-stack: 700px;

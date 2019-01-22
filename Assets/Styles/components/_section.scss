@@ -42,6 +42,13 @@
 
 .section--content .section__content {
     @include rem(max-width, $section-content-width);
+    @include rem(padding-left, $spacing-base);
+    @include rem(padding-right, $spacing-base);
+
+    @include bp-min-width($section-content-width) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .section--content-wide .section__content {

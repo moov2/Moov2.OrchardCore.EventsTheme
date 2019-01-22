@@ -11,10 +11,10 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    @include rem(height, $toolbar-height);
+    flex-wrap: wrap;
     justify-content: space-between;
-    @include rem(padding-left, $spacing-large);
-    @include rem(padding-right, $spacing-large);
+    @include rem(padding-left, $spacing-base);
+    @include rem(padding-right, $spacing-base);
     width: 100%;
 
     background-color: $toolbar-background;
@@ -25,6 +25,16 @@
     a {
         color: $toolbar-nav-color;
         text-decoration: none;
+    }
+
+    @include bp-min-width($toolbar-bp-reduce-spacing) {
+        @include rem(padding-left, $spacing-large);
+        @include rem(padding-right, $spacing-large);
+    }
+
+    @include bp-min-width($toolbar-bp-stack) {
+        flex-wrap: nowrap;
+        @include rem(height, $toolbar-height);
     }
 }
 
@@ -42,8 +52,17 @@
     }
 
     .toolbar__nav {
-        height: 100%;
+        @include rem(height, $toolbar-height);
+        @include rem(margin-left, -$spacing-base);
         
         @include rem(font-size, $toolbar-nav-font-size);
         line-height: 1;
+
+        @include bp-min-width($toolbar-bp-stack) {
+            margin-left: 0;
+        }
+
+        footer & {
+            @include rem(margin-left, -$spacing-small);
+        }
     }

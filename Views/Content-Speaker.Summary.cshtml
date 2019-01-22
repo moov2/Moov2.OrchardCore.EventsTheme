@@ -4,7 +4,7 @@
     var occupation = speaker.Occupation.Text;
 }
 
-<div class="media media--tight">
+<div class="media media--tight is-disable-wrap">
     @if (speaker.Thumbnail.Paths.Count > 0)
     {
         <img src="@Orchard.AssetUrl((string)speaker.Thumbnail.Paths[0])" alt="Thumbnail for @name" class="effect--rounded-border" />

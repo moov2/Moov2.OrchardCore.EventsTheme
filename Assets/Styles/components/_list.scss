@@ -57,14 +57,29 @@
     li,
     .list__item {
         @include rem(margin-bottom, $spacing-large);
-        width: 50%;
+        width: 100%;
+
+        @include bp-min-width($list-bp-double-stacked) {
+            width: 50%;
+        }
     }
 }
 
 .list--triple {
     li,
     .list__item {
-        @include rem(margin-bottom, $spacing-large);
-        width: 33.3%;
+        @include rem(margin-bottom, $spacing-base);
+        padding-right: 0;
+        width: 100%;
+
+        @include bp-min-width($list-bp-triple-stack) {
+            @include rem(padding-right, $spacing-large);
+            width: 50%;
+        }
+
+        @include bp-min-width($list-bp-triple-wrap) {
+            @include rem(margin-bottom, $spacing-large);
+            width: 33.3%;
+        }
     }
 }

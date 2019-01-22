@@ -10,7 +10,7 @@
     @foreach (var speaker in latestEvent.ContentItem.Content.Speakers.ContentItems)
     {
         <li class="list__item">
-            <div class="media media--tight">
+            <div class="media media--tight is-disable-wrap">
                 @if (speaker.Speaker.Thumbnail.Paths.Count > 0)
                 {
                     <img src="@Orchard.AssetUrl((string)speaker.Speaker.Thumbnail.Paths[0])" alt="Thumbnail for @speaker.TitlePart.Title" class="effect--rounded-border" />

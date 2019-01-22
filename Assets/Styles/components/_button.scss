@@ -27,6 +27,12 @@ a.button--cta,
     @include rem(line-height, $button-cta-line-height);
     text-decoration: none;
     text-transform: uppercase;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: $button-cta-background-active;
+    }
 }
 
 a.button--primary,
