@@ -4,7 +4,8 @@ Theme for an events website running on [Orchard Core](https://github.com/Orchard
 
 ## Build Status
 
-[![Build Status](https://secure.travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme.png?branch=master)](http://travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme) 
+[![Build Status](https://secure.travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme.png?branch=master)](http://travis-ci.org/moov2/Moov2.OrchardCore.EventsTheme) [![NuGet](https://img.shields.io/nuget/v/Moov2.OrchardCore.EventsTheme.svg)](https://www.nuget.org/packages/Moov2.OrchardCore.EventsTheme)
+ 
 
 ## Prerequisities
 
