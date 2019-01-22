@@ -4,6 +4,6 @@ using OrchardCore.DisplayManagement.Manifest;
     Name = "Events Theme",
     Author = "Moov2 Ltd.",
     Website = "https://moov2.com",
-    Version = "0.2.0",
+    Version = "0.2.1",
     Description = "Theme for events website"
 )]
