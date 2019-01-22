@@ -67,11 +67,21 @@
             @include rem(margin-top, -$promo-featured-breakout-unit);
         }
 
+        .list--horizontal,
+        .list--horizontal-tight {
+            justify-content: space-between;
+        }
+
         @include bp-min-width($promo-bp-stacked) {
             width: 35%;
         }
 
         @include bp-min-width($promo-bp-staggered) {
             width: 50%;
+
+            .list--horizontal,
+            .list--horizontal-tight {
+                justify-content: normal;
+            }
         }
     }

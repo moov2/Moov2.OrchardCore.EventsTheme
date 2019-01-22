@@ -74,7 +74,7 @@
                 <div class="info">
                     <div class="info__title">Event Sponsors</div>
 
-                    <ul class="list list--horizontal-tight">
+                    <ul class="list list--horizontal-tight is-align-middle">
                         @foreach (var sponsor in Model.ContentItem.Content.Sponsors.ContentItems)
                         {
                         <li class="list__item">
@@ -87,7 +87,7 @@
                                     }
                                     else
                                     {
-                                        <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 55, height: 55, resizeMode: ResizeMode.Crop)" alt="Logo for @sponsor.DisplayText" />
+                                        <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 90, height: 55)" alt="Logo for @sponsor.DisplayText" />
                                     }
                                 </a>
                             }
@@ -99,7 +99,7 @@
                                 }
                                 else
                                 {
-                                    <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 55, height: 55, resizeMode: ResizeMode.Crop)" alt="Logo for @sponsor.DisplayText" />
+                                    <img src="@Orchard.AssetUrl((string)sponsor.Sponsor.Logo.Paths[0], width: 90, height: 55)" alt="Logo for @sponsor.DisplayText" />
                                 }
                             }
                         </li>

@@ -30,6 +30,10 @@
 .list--horizontal-tight {
     flex-direction: row;
     flex-wrap: wrap;
+
+    &.is-align-middle { 
+        align-items: center;
+    }
 }
 
 .list--horizontal {
