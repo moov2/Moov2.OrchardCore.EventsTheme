@@ -544,7 +544,7 @@
                                 "Hint": "Upload a hi-res image (ideally 2056x900), this will be cropped at various breakpoints to ensure an appropriately sized image is loaded to the device viewing the website.",
                                 "Required": false,
                                 "Multiple": false,
-                                "Position": "6"
+                                "Position": "7"
                             }
                         },
                         {
@@ -557,6 +557,19 @@
                                 "Hint": "Displayed underneath the title.",
                                 "Required": false,
                                 "Position": "0"
+                            }
+                        },
+                        {
+                            "FieldName": "MediaField",
+                            "Name": "Logo",
+                            "Settings": {
+                                "DisplayName": "Logo",
+                                "Editor": null,
+                                "DisplayMode": null,
+                                "Hint": null,
+                                "Required": false,
+                                "Multiple": false,
+                                "Position": "6"
                             }
                         }
                     ]

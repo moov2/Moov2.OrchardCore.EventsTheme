@@ -10,10 +10,16 @@
     var subtitle = (string)Model.ContentItem.Content.Event.Subtitle?.Text;
 
     var coverImage = Model.ContentItem.Content.Event.CoverImage?.Paths.Count > 0 ? (string)Model.ContentItem.Content.Event.CoverImage.Paths[0] : string.Empty;
+    var logo = Model.ContentItem.Content.Event.Logo?.Paths.Count > 0 ? (string)Model.ContentItem.Content.Event.Logo.Paths[0] : string.Empty;
 }
 
 <section class="section section--featured">
     <div class="section__content">
+        @if (!string.IsNullOrEmpty(logo))
+        {
+            <img src="@Orchard.AssetUrl(logo)" alt="Logo for @Model.ContentItem.DisplayText" class="margin--bottom" />
+        }
+
         <h1>@Model.ContentItem.DisplayText</h1>
 
         @if (!string.IsNullOrEmpty(subtitle))
